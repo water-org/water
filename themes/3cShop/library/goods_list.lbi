@@ -80,6 +80,23 @@
                     <!--{else}-->
                     {$lang.shop_price}<font class="price">{$goods.shop_price}</font><br />
                     <!--{/if}-->
+                    <!--{if $goods.attr.region.name}-->
+                    {$goods.attr.region.name} : {$goods.attr.region.value} <br />
+                    <!--{/if}-->
+                    <!--{if $goods.attr.fit_range.name} -->
+                    {$goods.attr.fit_range.name} : {$goods.attr.fit_range.value} <br />
+                    <!--{/if}-->
+                    
+                    <!--{if $goods.attr.water_params }-->
+                    <!--{foreach from=$goods.attr.water_params item=water_param}-->
+                    {$water_param.name} : {$water_param.value} <br />
+                    <!--{/foreach}-->
+                    <!--{/if}-->
+                    <!--{if $goods.attr.capacity}-->
+                     <!--{foreach from=$goods.attr.capacity item=capacity}-->
+                     {$capacity.label} : {$capacity.real_price_formated} <br />
+                     <!--{/foreach}-->
+                     <!--{/if}-->
                     
                 </div>
                 <div class="description"></div>

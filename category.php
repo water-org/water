@@ -406,6 +406,25 @@ if (!$smarty->is_cached('category.dwt', $cache_id) || 1)
             $goodslist[] = array();
         }
     }
+    foreach ($goodslist as &$goods) {
+    	$specification = get_goods_properties($goods['goods_id']);
+    	foreach ($specification['pro']['商品属性'] as $a) {
+    		if($a['name'] == '水源产地') {
+    			$goods['attr']['region'] = $a;
+    		} else if ($a['name'] == '适用范围') {
+    			$goods['attr']['fit_range'] = $a;
+    		} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化度') {
+    			$goods['attr']['water_params'][] = $a;
+    		}
+    	}
+    	foreach ($specification['spe'] as $a) {
+    		foreach($a['values'] as &$b) {
+    			$b['real_price'] = $goods['price'] + $b['price'];
+    			$b['real_price_formated'] = price_format($b['real_price']);
+    		}
+    		$goods['attr']['capacity'] = $a['values'];
+    	}
+    }
     $smarty->assign('goods_list',       $goodslist);
     $smarty->assign('category',         $cat_id);
     $smarty->assign('script_name', 'category');
@@ -522,6 +541,7 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
         $arr[$row['goods_id']]['goods_style_name'] = add_style($row['goods_name'],$row['goods_name_style']);
         $arr[$row['goods_id']]['market_price']     = price_format($row['market_price']);
         $arr[$row['goods_id']]['shop_price']       = price_format($row['shop_price']);
+        $arr[$row['goods_id']]['price']       = $row['shop_price'];
         $arr[$row['goods_id']]['type']             = $row['goods_type'];
         $arr[$row['goods_id']]['promote_price']    = ($promote_price > 0) ? price_format($promote_price) : '';
         $arr[$row['goods_id']]['goods_thumb']      = get_image_path($row['goods_id'], $row['goods_thumb'], true);
