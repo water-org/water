@@ -455,6 +455,9 @@ display: none;
          height: 43px;
          float: left;
          text-align: center;
+         border: 1px solid #c8c9cb;
+         border-bottom: 1px solid #5c5d5f;
+         margin-bottom: -1px;
      }
      .cateContent dl dt a,.cateContent dl dt a:visited{color:#20364B;}
      .cateContent dl dd{
@@ -462,6 +465,12 @@ display: none;
      }
      .cateContent dl dd p{
      float:left; width:82px; height:18px; margin-right:4px; overflow:hidden;
+     }
+     .cateContent dt.active {
+        background: #fdcf87;
+        border: 1px solid #5c5d5f;
+        border-bottom: 1px solid #fdcf87;
+
      }
 .cateBott{
     display: none;
@@ -954,6 +963,7 @@ position:relative;
 .filter{
     padding:15px 25px 15px 25px;
     background-color: #fdcf87;
+    border-top: 1px solid #5c5d5f;
 }
   .filter .screeBox{
         padding:2px 5px;
