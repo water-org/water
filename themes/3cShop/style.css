@@ -1328,6 +1328,7 @@ _   position:relative; top:3px;
      position: absolute;
      right:1px;
      top:200px;
+     z-index: 101;
 }
 
 #compareBox input {

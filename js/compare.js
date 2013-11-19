@@ -45,7 +45,7 @@ Compare = {
 		}
 		if (!this.compareBox) {
 			this.compareBox = document.createElement("DIV");
-			var submitBtn = document.createElement("INPUT");
+			var submitBtn = this.submitBtn = document.createElement("INPUT");
 			this.compareList = document.createElement("UL");
 			this.compareBox.id = "compareBox";
 			this.compareBox.style.display = "none";
@@ -96,7 +96,7 @@ Compare = {
             delBtn.className = 'compare-delimg';
             delBtn.setAttribute('delid', key);
 			delBtn.onclick = function() {
-				document.getElementById("compareList").removeChild(this.parentNode);
+				document.getElementById("compareList").removeChild(this.parentNode.parentNode);
 				delete self.data[this.getAttribute('delid')];
 				self.save();
 				self.init();
@@ -111,7 +111,7 @@ Compare = {
 			warpdiv.className = 'compare-warp';
 			warpdiv.style.border = 'none';
 			warpdiv.style.borderWidth = 0;
-			warpdiv.appendChild(submitBtn);
+			warpdiv.appendChild(self.submitBtn);
 			li.appendChild(warpdiv);
 			self.compareList.appendChild(li);
 			this.compareBox.style.display = "";
