@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="{$keywords}" />
+    <meta name="Description" content="{$description}" />
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>{$page_title}</title>
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+    <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+    {* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+    <script type="text/javascript" src="js/action.js"></script>
+
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+        <!-- #EndLibraryItem -->
+        <div class="pageWarp clearfix">
+            <div id="pageRight" class="fl">
+                <!-- #BeginLibraryItem "/library/cart.lbi" -->
+                <!-- #EndLibraryItem -->
+                <div class="clearfix" style="margin-top:-8px;">
+                    <div class="flashbox fl">
+                        <!-- #BeginLibraryItem "/library/index_ad.lbi" -->
+                        <!-- #EndLibraryItem --> </div>
+                </div>
+                <!-- TemplateBeginEditable name="右边区域" -->
+                <!-- TemplateEndEditable -->
+                <div class="clearfix blank">
+                    <ul class="poplist clearfix">
+                        <li><img src="images/poplist_1.jpg"/></li>
+                        <li><img src="images/poplist_2.jpg"/></li>
+                        <li><img src="images/poplist_3.jpg"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- #BeginLibraryItem "/library/help.lbi" -->
+        <!-- #EndLibraryItem -->
+        <!--{if $img_links  or $txt_links }-->
+        <div class="block blank">
+            <div class="links clearfix">
+                <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+                <a href="{$link.url}" target="_blank" title="{$link.name}">
+                    <img src="{$link.logo}" alt="{$link.name}" />
+                </a>
+                <!--结束图片类型的友情链接{/foreach}-->
+                <!-- {if $txt_links} -->
+                <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+                <a href="{$link.url}" target="_blank" title="{$link.name}" class="linkTxt">{$link.name}</a>
+                <!--结束文字类型的友情链接{/foreach}-->
+                <!-- {/if} --> </div>
+        </div>
+        <!--{/if}-->
+        <!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+        <!-- #EndLibraryItem -->
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="knowledge block clearfix">
+    <div class="knowtab clearfix">
+        <div {if $cat_id eq 4}class="active"{/if} id="knowtab_0"><a href="article_cat.php?id=4">优水知识</a></div>
+        <div {if $cat_id eq 13}class="active"{/if} id="knowtab_1"><a href="article_cat.php?id=13">优水热点</a></div>
+    </div>
+    <div class="knowlist clearfix">
+    <!--{if $cat_id eq 4}-->
+        <div id="knowtab_0_sub">
+            关键字：
+            <a {if $search_value eq "婴儿"}class="knowselect" {/if} href="{$link}&keywords=婴儿">婴儿</a>
+            <a {if $search_value eq "幼儿"}class="knowselect" {/if} href="{$link}&keywords=幼儿">幼儿</a>
+            <a {if $search_value eq "孕妇"}class="knowselect" {/if} href="{$link}&keywords=孕妇">孕妇</a>
+            <a {if $search_value eq "成年人"}class="knowselect" {/if} href="{$link}&keywords=成年人">成年人</a>
+            <a {if $search_value eq "老年人"}class="knowselect" {/if} href="{$link}&keywords=老年人">老年人</a>
+        </div>
+        <!--{else}-->
+       <div id="knowtab_0_sub">
+            关键字：
+            <a {if $search_value eq "婴儿"}class="knowselect" {/if} href="{$link}&keywords=婴儿">婴儿</a>
+            <a {if $search_value eq "幼儿"}class="knowselect" {/if} href="{$link}&keywords=幼儿">幼儿</a>
+            <a {if $search_value eq "孕妇"}class="knowselect" {/if} href="{$link}&keywords=孕妇">孕妇</a>
+            <a {if $search_value eq "成年人"}class="knowselect" {/if} href="{$link}&keywords=成年人">成年人</a>
+            <a {if $search_value eq "老年人"}class="knowselect" {/if} href="{$link}&keywords=老年人">老年人</a>
+        </div>
+        <!--{/if}-->
+    </div>
+
+</div>
