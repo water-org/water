@@ -2,19 +2,6 @@
 $data = array (
   0 => 
   array (
-    'cat_id' => '12',
-    'cat_name' => '充值卡',
-    'measure_unit' => '',
-    'parent_id' => '0',
-    'is_show' => '0',
-    'show_in_nav' => '0',
-    'grade' => '0',
-    'sort_order' => '50',
-    'has_children' => '3',
-    'goods_num' => 0,
-  ),
-  1 => 
-  array (
     'cat_id' => '1',
     'cat_name' => '优水良品',
     'measure_unit' => '',
@@ -24,6 +11,19 @@ $data = array (
     'grade' => '5',
     'sort_order' => '50',
     'has_children' => '2',
+    'goods_num' => 0,
+  ),
+  1 => 
+  array (
+    'cat_id' => '12',
+    'cat_name' => '充值卡',
+    'measure_unit' => '',
+    'parent_id' => '0',
+    'is_show' => '0',
+    'show_in_nav' => '0',
+    'grade' => '0',
+    'sort_order' => '50',
+    'has_children' => '3',
     'goods_num' => 0,
   ),
   2 => 
@@ -54,8 +54,8 @@ $data = array (
   ),
   4 => 
   array (
-    'cat_id' => '15',
-    'cat_name' => '联通手机充值卡',
+    'cat_id' => '14',
+    'cat_name' => '移动手机充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',
@@ -67,8 +67,8 @@ $data = array (
   ),
   5 => 
   array (
-    'cat_id' => '13',
-    'cat_name' => '小灵通/固话充值卡',
+    'cat_id' => '15',
+    'cat_name' => '联通手机充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',
@@ -80,8 +80,8 @@ $data = array (
   ),
   6 => 
   array (
-    'cat_id' => '14',
-    'cat_name' => '移动手机充值卡',
+    'cat_id' => '13',
+    'cat_name' => '小灵通/固话充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',

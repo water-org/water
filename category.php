@@ -407,6 +407,8 @@ if (!$smarty->is_cached('category.dwt', $cache_id) || 1)
         }
     }
     $smarty->assign('goods_list',       $goodslist);
+    //print_r($goodslist);
+    //die;
     $smarty->assign('category',         $cat_id);
     $smarty->assign('script_name', 'category');
 

@@ -7,7 +7,27 @@ Browser.isIE = window.ActiveXObject ? true : false;
 Browser.isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != - 1);
 Browser.isSafari = (navigator.userAgent.toLowerCase().indexOf("safari") != - 1);
 Browser.isOpera = (navigator.userAgent.toLowerCase().indexOf("opera") != - 1);
-
+! function(){
+    var ua = navigator.userAgent;
+    // 蛋疼 你懂的
+    switch (true) {
+        case /msie (\d+\.\d+)/i.test(ua) :
+            Browser.ie = document.documentMode || + RegExp['\x241'];
+            break;
+        case /chrome\/(\d+\.\d+)/i.test(ua) :
+            Browser.chrome = + RegExp['\x241'];
+            break;
+        case /(\d+\.\d)?(?:\.\d)?\s+safari\/?(\d+\.\d+)?/i.test(ua) && !/chrome/i.test(ua) :
+            Browser.safari = + (RegExp['\x241'] || RegExp['\x242']);
+            break;
+        case /firefox\/(\d+\.\d+)/i.test(ua) : 
+            Browser.firefox = + RegExp['\x241'];
+            break;
+        case /opera(?:\/| )(\d+(?:\.\d+)?)(.+?(version\/(\d+(?:\.\d+)?)))?/i.test(ua) :
+            Browser.opera = + ( RegExp["\x244"] || RegExp["\x241"] );
+            break;
+    }
+}();
 var Utils = new Object();
 
 Utils.htmlEncode = function(text)
@@ -193,3 +213,50 @@ function cleanWhitespace(element)
      element.removeChild(node);
    }
 }
+! function() {
+if(window.innerWidth){// 除IE的所有浏览器 (IE9支持 W3C标准)
+  /**
+     * getViewportWidth getViewportHeight 窗口的文档显示区宽高
+   * getHorizontalScroll getVerticalScroll 当前页面相对于窗口显示区左上角的 X 位置。当前页面相对于窗口显示区左上角的 Y 位置。
+   */
+  Utils.getViewportWidth = function(){
+    return window.innerWidth;// 包括垂直滚动条宽度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getViewportHeight= function(){
+    return window.innerHeight;// 包括水平滚动条的高度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getHorizontalScroll = function(){
+    return window.pageXOffset;
+  }
+  Utils.getVerticalScroll= function(){
+    return window.pageYOffset;
+  }
+}else if(document.compatMode == 'CSS1Compat'){
+  // IE 且写了DOCTYPE 如果不写DOCTYPE IE6的document.compatMode='BackCompat' 否则为标准模式'CSS1Compat'
+  Utils.getViewportWidth = function(){
+    return document.documentElement.clientWidth;// 不包括垂直滚动条的宽度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getViewportHeight = function(){
+    return document.documentElement.clientHeight;// 不包括水平滚动条的宽度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getHorizontalScroll = function(){
+    return document.documentElement.scrollLeft;
+  }
+  Utils.getVerticalScroll = function(){
+    return document.documentElement.scrollTop;
+  }
+}else if(document.compatMode == 'BackCompat'){// IE6 没有写DOCTYPE 或IE 7 8 9 设置了Quirds模式
+  Utils.getViewportWidth = function(){
+    return document.body.clientWidth;// 不包括垂直滚动条的宽度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getViewportHeight= function(){
+    return document.body.clientHeight;// 不包括水平滚动条的宽度 宽度和高度不包括菜单栏、工具栏
+  }
+  Utils.getHorizontalScroll = function(){
+    return document.body.scrollLeft;
+  }
+  Utils.getVerticalScroll = function(){
+    return document.body.scrollTop;
+  }
+}
+}();

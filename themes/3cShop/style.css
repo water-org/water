@@ -1322,7 +1322,7 @@ _   position:relative; top:3px;
 }
 /* ======商品比较浮动块 ====== */
 #compareBox {
-     width:200px;
+     width:206px;
      background:#5dc6d1 url(images/compareBg.gif) no-repeat top center;
      padding:35px 0 8px 0;
      position: absolute;
@@ -1336,25 +1336,41 @@ _   position:relative; top:3px;
     background:url(images/compareSub.gif) no-repeat;
 }
 
+#compareBox.compare-fixed {
+    position: fixed;
+}
 #compareList {
-     margin:0px 0px 8px 0px;
-     padding:0px;
+     padding: 0 5px;
      width:190px;
      background:#5dc6d1;
-     border:1px solid #5dc6d1;
 }
 
 #compareList li {
-     color: #333;
-     text-align:left;
-     background: #fff;
-     padding: 8px 5px;
-     margin: 1px 0;
+    color: #333;
+    text-align:center;
+    background: #fff;
+    padding: 10px 10px 0;
+    position: relative;
+    list-style: none;
 }
 
-#compareList li img {
-     float:right;
-     padding-top:4px;
+#compareList li .compare-warp {
+    width: 160px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #5dc6d1;
+}
+#compareList li .compare-timg {
+    width: 103px;
+    height: 61px;
+}
+#compareList li .compare-delimg {
+    position: absolute;
+    top: 50px;
+    right: 16px;
+}
+#compareList li .compare-desc {
+    overflow: hidden;
+    color: #e4522b;
 }
 .compare{
     height: 50px;
@@ -1369,7 +1385,7 @@ _   position:relative; top:3px;
 }
 .comparebox td{
     padding: 8px 0;
-    
+
 }
 .comparebox a img{
     width: 103px;
@@ -1380,26 +1396,26 @@ _   position:relative; top:3px;
 
 /*购物车提示*/
 .messageli {
-     list-style-type:none;
-     padding:5px;
-     color:red;
+    list-style-type:none;
+    padding:5px;
+    color:red;
 }
 .messagediv {
-     font-size:12px;
-     position:absolute;
-     border:1px solid #FFD700;
-     text-align:center;
-     padding:5px;
-     background-color:#FFFACD;
-     filter:alpha(opacity=50);
-     -moz-opacity:0.7;
-     opacity: 0.7;
+    font-size:12px;
+    position:absolute;
+    border:1px solid #FFD700;
+    text-align:center;
+    padding:5px;
+    background-color:#FFFACD;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.7;
+    opacity: 0.7;
 }
 
 /*  积分兑换样式修改 */
 .point li{
-     float:left;
-     width:300px;
+    float:left;
+    width:300px;
 }
 
 
@@ -1410,7 +1426,7 @@ _   position:relative; top:3px;
 .knowtab{
     width: 952px;
     background:url(images/jf.jpg) left bottom repeat-x;
-    
+
 }
 .knowtab div{
     float: left;
