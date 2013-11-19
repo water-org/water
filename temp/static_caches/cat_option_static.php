@@ -16,6 +16,22 @@ $data = array (
     'id' => '12',
     'name' => '充值卡',
   ),
+  15 => 
+  array (
+    'cat_id' => '15',
+    'cat_name' => '联通手机充值卡',
+    'measure_unit' => '',
+    'parent_id' => '12',
+    'is_show' => '0',
+    'show_in_nav' => '0',
+    'grade' => '0',
+    'sort_order' => '50',
+    'has_children' => '0',
+    'goods_num' => '2',
+    'level' => 1,
+    'id' => '15',
+    'name' => '联通手机充值卡',
+  ),
   13 => 
   array (
     'cat_id' => '13',
@@ -47,22 +63,6 @@ $data = array (
     'level' => 1,
     'id' => '14',
     'name' => '移动手机充值卡',
-  ),
-  15 => 
-  array (
-    'cat_id' => '15',
-    'cat_name' => '联通手机充值卡',
-    'measure_unit' => '',
-    'parent_id' => '12',
-    'is_show' => '0',
-    'show_in_nav' => '0',
-    'grade' => '0',
-    'sort_order' => '50',
-    'has_children' => '0',
-    'goods_num' => '2',
-    'level' => 1,
-    'id' => '15',
-    'name' => '联通手机充值卡',
   ),
   1 => 
   array (

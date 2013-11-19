@@ -54,8 +54,8 @@ $data = array (
   ),
   4 => 
   array (
-    'cat_id' => '13',
-    'cat_name' => '小灵通/固话充值卡',
+    'cat_id' => '15',
+    'cat_name' => '联通手机充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',
@@ -67,8 +67,8 @@ $data = array (
   ),
   5 => 
   array (
-    'cat_id' => '14',
-    'cat_name' => '移动手机充值卡',
+    'cat_id' => '13',
+    'cat_name' => '小灵通/固话充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',
@@ -80,8 +80,8 @@ $data = array (
   ),
   6 => 
   array (
-    'cat_id' => '15',
-    'cat_name' => '联通手机充值卡',
+    'cat_id' => '14',
+    'cat_name' => '移动手机充值卡',
     'measure_unit' => '',
     'parent_id' => '12',
     'is_show' => '0',
