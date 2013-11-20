@@ -1557,3 +1557,15 @@ _   position:relative; top:3px;
     background-color: #fff;
     border:1px solid #f18115;
 }
+.helpbox > .goodsbox .helpTit{
+    background: url(images/help.jpg) center center no-repeat;
+    height: 80px;
+    text-indent: -9900px;
+
+}
+.helpbox>.goodsbox+.goodsbox .helpTit{
+    background: url(images/song.jpg) center center no-repeat;
+    height: 95px;
+    text-indent: -9900px;
+
+}
