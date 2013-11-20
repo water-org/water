@@ -33,10 +33,7 @@
 <!-- #BeginLibraryItem "/library/knowledge.lbi" --><!-- #EndLibraryItem -->
 	<div id="pageRight" class="fr">
 	
-	<h1 class="mod2Tit clearfix blank">
-	 <div class="fl">
-	 {$lang.article_list}
-   </div>
+	<h1 class="search_box clearfix blank">
 	 <form action="{$search_url}" name="search_form" method="post" class="fr">
         <input name="keywords" type="text" id="requirement" value="{$search_value}" size="40" class="InputBorder" />
         <input name="id" type="hidden" value="{$cat_id}" />
@@ -44,25 +41,23 @@
         <input type="submit" value="{$lang.button_search}" class="bnt_number4" />
   </form>
 	</h1>
-	 <div class="mod1con">
-	 <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-      <tr>
-      	<th bgcolor="#ffffff">图片</th>
-        <th bgcolor="#ffffff">{$lang.article_title}</th>
-          <th bgcolor="#ffffff">{$lang.article_author}</th>
-          <th bgcolor="#ffffff">{$lang.article_add_time}</th>
-        </tr>
+	 <div class="articlelist_box clearfix">
+	 <div class="articlelist clearfix">
+
       <!-- {foreach from=$artciles_list item=article} -->
-      <tr>
-        <td bgcolor="#ffffff">{if $article.file_url}<img height="100" width="100" src="{$article.file_url}" />{/if}</td>
-        <td bgcolor="#ffffff"><a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title}</a></td>
-          <td bgcolor="#ffffff">{$article.author}</td>
-          <td bgcolor="#ffffff" align="center">{$article.add_time}</td>
-        </tr>
+
+        <div>
+            <a href="{$article.url}" title="{$article.title|escape:html}">
+              <img height="100" width="100" src="{$article.file_url}" />
+              {$article.short_title|truncate:13}
+          </a>
+        </div>
+
       <!-- {/foreach} -->
-    </table>
+    </div>
+    <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
 	 </div>
-	<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+	
 	<!-- TemplateBeginEditable name="文章列表下可编辑区域" -->  
   <!-- TemplateEndEditable -->
 
