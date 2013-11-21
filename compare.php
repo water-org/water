@@ -56,6 +56,7 @@ if (!empty($_REQUEST['goods']) && is_array($_REQUEST['goods']) && count($_REQUES
         $arr[$goods_id]['url']          = build_uri('goods', array('gid' => $goods_id), $row['goods_name']);
         $arr[$goods_id]['goods_name']   = $row['goods_name'];
         $arr[$goods_id]['shop_price']   = price_format($row['shop_price']);
+        $arr[$goods_id]['price']   = $row['shop_price'];
         $arr[$goods_id]['rank_price']   = price_format($row['rank_price']);
         $arr[$goods_id]['goods_weight'] = (intval($row['goods_weight']) > 0) ?
                                            ceil($row['goods_weight']) . $_LANG['kilogram'] : ceil($row['goods_weight'] * 1000) . $_LANG['gram'];
@@ -100,6 +101,8 @@ if (!empty($_REQUEST['goods']) && is_array($_REQUEST['goods']) && count($_REQUES
     {
         $attribute[$rt['attr_id']] = $rt['attr_name'];
     }
+
+    $arr = my_get_goods_list($arr);
 
     $smarty->assign('attribute', $attribute);
     $smarty->assign('goods_list', $arr);

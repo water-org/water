@@ -2779,4 +2779,27 @@ if (!function_exists('array_combine')) {
     }
 }
 
+function my_get_goods_list($goodslist) {
+	foreach ($goodslist as &$goods) {
+		$specification = get_goods_properties($goods['goods_id']);
+		foreach ($specification['pro']['商品属性'] as $a) {
+			if($a['name'] == '水源产地') {
+				$goods['attr']['region'] = $a;
+			} else if ($a['name'] == '适用范围') {
+				$goods['attr']['fit_range'] = $a;
+			} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化度') {
+				$goods['attr']['water_params'][] = $a;
+			}
+		}
+		foreach ($specification['spe'] as $a) {
+			foreach($a['values'] as &$b) {
+				$b['real_price'] = $goods['price'] + $b['price'];
+				$b['real_price_formated'] = price_format($b['real_price']);
+			}
+			$goods['attr']['capacity'] = $a['values'];
+		}
+	}
+	return $goodslist;
+}
+
 ?>
