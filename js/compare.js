@@ -12,7 +12,10 @@ Compare = {
 			}
 			count++;
 		}
-
+		if (count >= 4) {
+			alert('最多能对比4个产品');	
+			return;
+		}	
 		if (this.data[goodsId]) {
 			alert(exist.replace("%s", goodsName));
 			return;
