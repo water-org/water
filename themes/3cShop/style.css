@@ -257,7 +257,7 @@ padding-left:12px;
         width: 100%;
         height: 40px;
         line-height: 40px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
 
     }
     .buy_action{
@@ -1568,4 +1568,56 @@ _   position:relative; top:3px;
     height: 95px;
     text-indent: -9900px;
 
+}
+.rate{
+        background: url(images/bg_rate_grey.png) no-repeat left center;
+        display: inline-block;
+        width: 86px;
+        overflow: hidden;
+        height: 14px;
+        color: #f70600;
+        font-weight: bold;
+        zoom: 1;
+        _line-height: 14px;
+        _height: 14px;
+}
+.rate-inner{
+    background: url(images/bg_rate_red.png) no-repeat  left center;
+    display: inline-block;
+    line-height: 14px;
+    height: 14px;
+    vertical-align: top;
+    zoom: 1;
+    _line-height: 14px;
+    _height: 14px;
+}
+.baby_ratings{
+    line-height: 14px;
+    height: 14px;
+    vertical-align: middle;
+    padding: 3px 0;
+}
+.baby_rating_name{
+    width: 56px;
+    text-align: right;
+    display: inline-block;
+}
+.baby_range{
+    position: absolute;
+    left: 160px;
+    top: 54px;
+}
+.baby_range span{
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+}
+.firstlable{
+    text-align: center;
+    width: 50px;
+}
+.baby_place{
+    position: absolute;
+    left: 320px;
+    top: 54px;
 }

@@ -94,7 +94,7 @@ scrollAmount=3><U><FONT color=red>
   'search_keywords' => '',
   'related_goods_number' => '4',
   'help_open' => '1',
-  'article_page_size' => '10',
+  'article_page_size' => '15',
   'page_style' => '1',
   'recommend_order' => '0',
   'index_ad' => 'sys',
