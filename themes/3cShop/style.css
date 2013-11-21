@@ -1467,7 +1467,7 @@ _   position:relative; top:3px;
 .comparebox td{
     padding: 8px 0;
     text-align: center;
-
+    position: relative;
 }
 .comparebox th{
     padding-left: 10px;
@@ -1476,6 +1476,14 @@ _   position:relative; top:3px;
     width: 103px;
     height: 62px;
 
+}
+.comparebox a.list-del {
+    background: url(images/del_blue.png);
+    width: 20px;
+    height: 21px;
+    position: absolute;
+    top: 17px;
+    right: 5px;
 }
 .comparebox .compare-capacity {
     width: 114px;
@@ -1587,7 +1595,7 @@ _   position:relative; top:3px;
 .rate{
         background: url(images/bg_rate_grey.png) no-repeat left center;
         display: inline-block;
-        width: 86px;
+        width: 80px;
         overflow: hidden;
         height: 14px;
         color: #f70600;

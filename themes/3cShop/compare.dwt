@@ -49,7 +49,11 @@ var select_spe = "{$lang.select_spe}";
               <tr class="comparelist">
                 <th width="120" align="center" bgcolor="#ffffff">{$lang.goods_name}</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td align="center" bgcolor="#ffffff" {if $smarty.foreach.goods_list.total gt 3}width="200"{else}{/if}> {$goods.goods_name}</td>
+                <td align="center" bgcolor="#ffffff" {if $smarty.foreach.goods_list.total gt 3}width="200"{else}{/if}> {$goods.goods_name}
+                    <!-- {if $smarty.foreach.goods_list.total gt 2} -->
+                      <a class="list-del" href="compare.php?{$goods.ids}" onclick="return remove({$goods.goods_id});"></a> 
+                    <!-- {/if} -->
+                </td>
                 <!-- {/foreach} -->
               </tr>
               <tr>
@@ -58,15 +62,15 @@ var select_spe = "{$lang.select_spe}";
                 <td  align="center" bgcolor="#ffffff" style="padding:5px;"><a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" class="ent_img" /></a></td>
                 <!-- {/foreach} -->
               </tr>
-              <!-- {if $smarty.foreach.goods_list.total gt 2} -->
+              
               <tr>
                 <td bgcolor="#ffffff">&nbsp;</td>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
                 <th bgcolor="#ffffff">
-                  <a href="compare.php?{$goods.ids}" onclick="return remove({$goods.goods_id});">{$lang.compare_remove}</a>                </th>
+                                 </th>
                 <!-- {/foreach} -->
               </tr>
-              <!-- {/if} -->
+              
               <tr>
                 <th align="left" bgcolor="#ffffff">水源产地：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
@@ -97,13 +101,15 @@ var select_spe = "{$lang.select_spe}";
                 <th align="left" bgcolor="#ffffff">水源参数：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
                   <td bgcolor="#ffffff">
-                    <table class="compare-capacity water-param">
-                      <tbody>
-                    <!-- {foreach name="water_params_list" from=$goods.attr.water_params item=water_params} -->
-                        <tr><td class="compare-c1">{$capacity.name}</td><td class="compare-c2">{$capacity.real_price_formated}</td></tr>
+
+                    <!--{foreach from=$goods.attr.water_params item=attr}-->              
+                    <p class="baby_ratings">
+                        <span class="baby_rating_name">{$attr.name}</span>：
+                        <span class="mrs rate">
+                            <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"</span>
+                        </span>
+                    </p>
                     <!-- {/foreach} -->
-                      </tbody>
-                    </table>
                   </td>
                 <!-- {/foreach} -->
               </tr>
