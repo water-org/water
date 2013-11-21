@@ -94,7 +94,8 @@ function get_footer()
 {
     if (substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], '/')) == '/index.php')
     {
-        $footer = "<br/>Powered by ECShop[".local_date('H:i')."]";
+        //$footer = "<br/>Powered by ECShop[".local_date('H:i')."]";
+        $footer = "";
     }
     else
     {
