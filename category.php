@@ -328,7 +328,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id) || 1)
     }
 
     if($cat_id == 3 || $cat_id == 5) {
-    	assign_template('c', array(1));
+    	assign_template('c', array(3));
     } else {
     	assign_template('c', array($cat_id));
     }

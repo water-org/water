@@ -53,7 +53,7 @@ var select_spe = "{$lang.select_spe}";
                 <!-- {/foreach} -->
               </tr>
               <tr>
-                <th align="left" bgcolor="#ffffff"></th>
+                <th align="left" bgcolor="#ffffff">产品外观：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
                 <td  align="center" bgcolor="#ffffff" style="padding:5px;"><a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" class="ent_img" /></a></td>
                 <!-- {/foreach} -->
@@ -68,49 +68,45 @@ var select_spe = "{$lang.select_spe}";
               </tr>
               <!-- {/if} -->
               <tr>
-                <th align="left" bgcolor="#ffffff">&nbsp;&nbsp;{$lang.brand}</th>
+                <th align="left" bgcolor="#ffffff">水源产地：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;{$goods.brand_name}</td>
+                <td bgcolor="#ffffff">{$goods.attr.region.value}</td>
                 <!-- {/foreach} -->
               </tr>
               <tr>
-                <th align="left" bgcolor="#ffffff">&nbsp;&nbsp;{$lang.shop_price}</th>
+                <th align="left" bgcolor="#ffffff">适用范围：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;{$goods.rank_price}</td>
+                <td bgcolor="#ffffff">{$goods.attr.fit_range.value}</td>
                 <!-- {/foreach} -->
               </tr>
               <tr>
-                <th align="left" bgcolor="#ffffff">&nbsp;&nbsp;{$lang.goods_weight}</th>
+                <th align="left" bgcolor="#ffffff">产品规格及价格：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;{$goods.goods_weight}</td>
-                <!-- {/foreach} -->
-              </tr>
-              <!-- {foreach key=key from=$attribute item=val} -->
-              <tr>
-                <th align="left" bgcolor="#ffffff">&nbsp;&nbsp;{$val}</th>
-                <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;
-                  <!-- {foreach from=$goods.properties item=property key=k} -->
-                  <!-- {if $k eq $key} -->
-                  {$property.value}
-                  <!-- {/if} -->
-                  <!-- {/foreach} -->                </td>
-                <!-- {/foreach} -->
-              </tr>
-              <!-- {/foreach} -->
-              <tr>
-                <td align="left" bgcolor="#ffffff">&nbsp;&nbsp;<strong>{$lang.goods_rank}</strong></td>
-                <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;<span class="goods-price"><img src="images/stars{$goods.comment_rank}.gif" width="64" height="12" alt="comment rank {$goods.comment_rank}" /></span><br /></td>
+                  <td bgcolor="#ffffff">
+                    <table class="compare-capacity">
+                      <tbody>
+                    <!-- {foreach name="capacitys_list" from=$goods.attr.capacity item=capacity} -->
+                        <tr><td class="compare-c1">{$capacity.label}</td><td class="compare-c2">{$capacity.real_price_formated}</td></tr>
+                    <!-- {/foreach} -->
+                      </tbody>
+                    </table>
+                  </td>
                 <!-- {/foreach} -->
               </tr>
               <tr>
-                <td align="left" bgcolor="#ffffff">&nbsp;&nbsp;<strong>{$lang.brief}</strong></td>
+                <th align="left" bgcolor="#ffffff">水源参数：</th>
                 <!-- {foreach name="goods_list" from=$goods_list item=goods} -->
-                <td bgcolor="#ffffff">&nbsp;&nbsp;<a href="{$goods.url}" target="_blank"> {$goods.goods_brief}</a></td>
+                  <td bgcolor="#ffffff">
+                    <table class="compare-capacity water-param">
+                      <tbody>
+                    <!-- {foreach name="water_params_list" from=$goods.attr.water_params item=water_params} -->
+                        <tr><td class="compare-c1">{$capacity.name}</td><td class="compare-c2">{$capacity.real_price_formated}</td></tr>
+                    <!-- {/foreach} -->
+                      </tbody>
+                    </table>
+                  </td>
                 <!-- {/foreach} -->
               </tr>
-              
   </table>
 </div>
 <!--主体内容 end-->

@@ -1466,15 +1466,30 @@ _   position:relative; top:3px;
 }
 .comparebox td{
     padding: 8px 0;
+    text-align: center;
 
+}
+.comparebox th{
+    padding-left: 10px;
 }
 .comparebox a img{
     width: 103px;
     height: 62px;
 
 }
-
-
+.comparebox .compare-capacity {
+    width: 114px;
+    margin: 0 auto;
+}
+.comparebox .compare-capacity td {
+    padding: 5px 0;
+}
+.comparebox .compare-capacity .compare-c1 {
+    text-align: left;
+}
+.comparebox .compare-capacity .compare-c2 {
+    text-align: right;
+}
 /*购物车提示*/
 .messageli {
     list-style-type:none;
