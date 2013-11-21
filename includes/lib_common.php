@@ -2787,8 +2787,11 @@ function my_get_goods_list($goodslist) {
 				$goods['attr']['region'] = $a;
 			} else if ($a['name'] == '适用范围') {
 				$goods['attr']['fit_range'] = $a;
-			} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化度') {
+			} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化性') {
+                $a['activevalue'] = $a['value']/5*80;
+                $a['normalvalue'] = 80-($a['value']/5*80);
 				$goods['attr']['water_params'][] = $a;
+
 			}
 		}
 		foreach ($specification['spe'] as $a) {

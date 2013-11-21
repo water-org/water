@@ -38,6 +38,7 @@
         <b>{$goods.goods_name}</b><br />
         <!-- {/if} -->
     </a>
+
      <!-- {if $goods.goods_brief} -->
     {$lang.goods_brief}{$goods.goods_brief}<br />
     <!-- {/if} -->
@@ -72,15 +73,49 @@
                    <p class="baby_name">
                         <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a><br />
                     </p>
-                    <!-- {if $show_marketprice} -->
-                    {$lang.market_price}<font class="market">{$goods.market_price}</font><br />
-                    <!-- {/if} -->
-                    <!--{if $goods.promote_price neq "" } -->
-                    {$lang.promote_price}<font class="price">{$goods.promote_price}</font><br />
-                    <!--{else}-->
-                    {$lang.shop_price}<font class="price">{$goods.shop_price}</font><br />
-                    <!--{/if}-->
                     
+
+                    <!-- {if $goods.attr.water_params} -->
+                    <!--{foreach from=$goods.attr.water_params item=attr}-->
+                    <p class="baby_ratings">
+                        <span class="baby_rating_name">{$attr.name}</span>：
+                        <span class="mrs rate">
+                            <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"</span>
+                        </span>
+                    </p>
+                    <!--{/foreach}-->
+                    <!--{/if}-->
+
+                    <!-- {if $goods.attr.capacity} -->
+                    <div class="baby_range">
+                    <!--{foreach from=$goods.attr.capacity item=capacity}-->
+                      <p>
+                          <span class="firstlable">{$capacity.label}</span>
+                          <span>{$capacity.real_price_formated}</span>
+                      </p>
+                    <!--{/foreach}-->
+                    </div>
+                    <!--{/if}-->
+
+                    
+
+                    <!-- {if $goods.attr.fit_range} -->
+                     <div class="baby_place">
+                      <p>
+                          <span>{$goods.attr.fit_range.name}</span>：
+                          <span>{$goods.attr.fit_range.value}</span>
+                      </p>
+                    
+                    <!--{/if}-->
+
+                    <!-- {if $goods.attr.region} -->
+                    <p>
+                        <span>{$goods.attr.region.name}</span>：
+                        <span>{$goods.attr.region.value}</span>
+                    </p>
+                    </div>
+                    <!--{/if}-->
+
                 </div>
                 <div class="description"></div>
            </div>

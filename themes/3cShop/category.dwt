@@ -22,7 +22,6 @@
 <body>
 	<!-- #BeginLibraryItem "/library/page_header.lbi" -->
 	<!-- #EndLibraryItem -->
-
 	<div class="pageWarp clearfix">
 		<div id="pageRight" class="fr">
 			<!-- #BeginLibraryItem "/library/cart.lbi" -->
