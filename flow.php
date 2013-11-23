@@ -2145,7 +2145,8 @@ $smarty->assign('currency_format', $_CFG['currency_format']);
 $smarty->assign('integral_scale',  $_CFG['integral_scale']);
 $smarty->assign('step',            $_REQUEST['step']);
 assign_dynamic('shopping_flow');
-
+// print_r($cart_goods);
+// die;
 $smarty->display('flow.dwt');
 
 /*------------------------------------------------------ */

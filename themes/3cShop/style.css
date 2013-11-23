@@ -20,6 +20,9 @@ background: url(images/bj.jpg) left top repeat fixed;
     margin-bottom: 30px;
     position: relative;
 }
+.hide{
+    display: none;
+}
 div{margin:0 auto; padding:0;}
 h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,img,p{
 margin:0; padding:0; border:none; list-style-type:none;
@@ -229,14 +232,14 @@ padding-left:12px;
 
 /*单个商品外围框架（此方法在火狐和ie8下面会产生3px边距）*/
 .goodsbox{
-    width:453px;
+    width:465px;
     min-height:1px;
     display: -moz-inline-stack;
     display: inline-block;
     text-align:center;
     vertical-align: top;
-    margin:3px 10px;
-    *margin:0 10px;
+    margin:3px 20px 3px 0px;
+    *margin:0px 20px 0px 0px;
     zoom:1;
     *display:inline;
     position: relative;
@@ -247,11 +250,11 @@ padding-left:12px;
         text-align: left;
         z-index: 100;
         left: 0;
-        bottom: 0;
+        bottom: -141px;
         margin:0 10px 20px 20px;
         line-height: 20px;
-        width: 413px;
-        height: 131px;
+        width: 433px;
+        height: 161px;
     }
     .baby_name{
         border-bottom: 1px solid #fff;
@@ -277,9 +280,9 @@ padding-left:12px;
          -moz-opacity:0.6;
          opacity: 0.6;
          left: 0;
-         bottom: 0;
-         width: 453px;
-         height: 150px;
+         bottom: -141px;
+         width: 465px;
+         height: 180px;
 
     }
     .description_box p.baby_name a,
@@ -293,7 +296,7 @@ padding-left:12px;
     }
 
     .goodsbox .imgbox{
-        width:453px;
+        width:465px;
         height: 270px;
         overflow:hidden;
         background-color: #ccc;
@@ -904,7 +907,107 @@ position:relative;
 .goodInfoTxt{
     width:450px;
     background-color: #fdcf87;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
+    position: relative;
+    min-height: 245px;
+}
+.goods_des{
+    position: absolute;
+    left: 240px;
+    top: 20px;
+    line-height: 28px;
+    display: none;
+}
+.goodInfoTxt  .baby_ratings{
+    padding: 6px 0px;
+}
+.vhide{
+    visibility: hidden;
+}
+.goods_button{
+    position: absolute;
+    left: 30px;
+    bottom: 10px;
+}
+.goods_dsc_list{
+    position: absolute;
+    left: 216px;
+    top: 20px;
+}
+.goods_label{
+    display: inline-block;
+    border: 2px solid #b9b9b9;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 1px 15px 1px 0px;
+    min-width: 70px;
+    text-align: center;
+    color: #015194;
+}
+.goods_label_active{
+    background: url(images/input_bg.png) right bottom no-repeat;
+    display: inline-block;
+    border: 2px solid #cc0000;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 1px 15px 1px 0px;
+    min-width: 70px;
+    text-align: center;
+    color: #015194;
+}
+.goods_price{
+    color: #e4522b;
+    font-weight: bold;
+}
+.buy_count{
+    line-height: 28px;
+    padding-left: 7px;
+}
+.buy_count_botton a{
+    width: 14px;
+    height: 14px;
+    line-height: 12px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    border: 1px solid #dedede;
+    cursor: pointer;
+}
+.flow_list a{
+    float: left;
+    font-family: 16px;
+    font-weight: bold;
+    color: #e4522b;
+    margin-right: 10px;
+}
+.flow_del a,.flow_del a:link,.flow_del a:hover{
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid #919191;
+}
+.wx{
+    display: inline-block;
+    margin: 10px 0px 0px 20px;
+}
+.updata_cart input{
+    background:none;
+    background-color: #fff!important;
+    outline: none;
+    color: #000;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid #919191;
+    height: 27px!important;
+}
+.buy_count_botton input{
+    text-align: center;
 }
     .goodInfoTxt .goodsName{
             line-height:30px; 
@@ -1050,17 +1153,27 @@ position:relative;
         padding:3px 7px; 
         margin-right:8px;
         color:#000;
-        display: in
+        display: inline-block;
     }
     .filter .screeBox a:hover{
         margin-right:8px;
         background:#fff;
+        padding:3px 7px; 
         color:#000; 
         text-decoration:none;
+        display: inline-block;
     }
     .filter .screeBox strong{
-        display:inline-block;
     }
+.filterfl{
+    float: left;
+    width: 60px;
+    text-align: right;
+}
+.filterfr{
+    float: left;
+    width: 700px;
+}
 .sort{
     font-size:12px;
     font-weight:100;
@@ -1099,6 +1212,10 @@ _   position:relative; top:3px;
     .cateGoodList li.action{
         float:right;
     }
+.grid{
+    margin-right: -30px;
+    margin-top: 20px;
+}
 .grid .goodsbox{
     margin-bottom:8px;
 }   
@@ -1377,7 +1494,8 @@ _   position:relative; top:3px;
     margin: 20px 10px;
     line-height: 30px;
     text-indent: 10px;
-    width: 400px;
+    width: 330px;
+    float: right;
 }
 .share_title{
     padding-left: 10px;
@@ -1652,4 +1770,16 @@ _   position:relative; top:3px;
     top: 10px;
     cursor: pointer;
     padding: 10px;
+}
+.goods_banner_box{
+    line-height:30px;
+}
+.goods_banner_box *{
+    padding-left: 10px;
+}
+.goods_detail_name{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #e4522b;
 }

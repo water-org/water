@@ -1,5 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<div class="mod2Tit clearfix blank">
+{insert_scripts files='move.js'}
+<div class="mod2Tit clearfix blank hide">
   <span class="fl">{$lang.goods_list}</span>
   <form method="GET" class="sort fr" name="listform">
   <font style="font-weight:100; font-size:12px;">{$lang.btn_display}：</font>
@@ -63,16 +64,16 @@
     </div>
     <!-- {elseif $pager.display == 'grid'} -->
     <div class="clearfix grid">
-    <!--{foreach from=$goods_list item=goods}-->
+    <!--{foreach from=$goods_list item=goods key=value}-->
     <!-- {if $goods.goods_id} -->
      <div class="goodsbox">
            <div class="imgbox">
                 <a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
 
-                <div class="description_box">
+                <div id="description_box_{$value}" class="description_box">
                    <p class="baby_name">
                         <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a><br />
-                        <img class="actionicon" src="images/xia.png"/>
+                        <img id="imgaction_{$value}" onclick="movefun(this)" class="actionicon" src="images/shang.png"/>
                     </p>
                     
 
@@ -118,9 +119,43 @@
                     <!--{/if}-->
 
                 </div>
-                <div class="description"></div>
+                <div class="description" id="description_{$value}"></div>
            </div>
+           <script type="text/javascript">
+                function movefun(__obj){
+                    if(__obj.src.indexOf("shang") != -1){
+                        __obj.src = "images/xia.png";
+                        var sn = __obj.id.split("_")[1];
+                        var box = "#description_box_" + sn;
+                        var opc = "#description_" + sn;
 
+                        move(box)
+                        .add('bottom', 141)
+                        .end();
+
+                        move(opc)
+                        .add('bottom', 141)
+                        .end();
+
+                    }else{
+                        __obj.src = "images/shang.png";
+                        var sn = __obj.id.split("_")[1];
+                        var box = "#description_box_" + sn;
+                        var opc = "#description_" + sn;
+                        console.log(box);
+                        move(box)
+                        .add('bottom', -141)
+                        .end();
+
+                        move(opc)
+                        .add('bottom', -141)
+                        .end();
+                    }
+                    
+                    
+                }
+            
+           </script>
            
             <div class="buy_action">
                 <a class="baby_buy" href="javascript:addToCart({$goods.goods_id})">

@@ -43,21 +43,19 @@
 	<form id="formCart" name="formCart" method="post" action="flow.php">
 		 <table width="100%" align="center" border="0" cellpadding="5" class="buycarlist">
 			<tr>
-				<th bgcolor="#ffffff">{$lang.goods_name}</th>
+				<th bgcolor="#ffffff" width="300">商品</th>
 				<!-- {if $show_goods_attribute eq 1} 显示商品属性 -->
-				<th bgcolor="#ffffff">{$lang.goods_attr}</th>
+				<th bgcolor="#ffffff">规格</th>
 				<!-- {/if} -->
 				<!-- {if $show_marketprice} 显示市场价 -->
-				<th bgcolor="#ffffff">{$lang.market_prices}</th>
+				<th bgcolor="#ffffff">数量</th>
 				<!-- {/if} -->
-				<th bgcolor="#ffffff">{$lang.shop_prices}</th>
-				<th bgcolor="#ffffff">{$lang.number}</th>
-				<th bgcolor="#ffffff">{$lang.subtotal}</th>
-				<th bgcolor="#ffffff">{$lang.handle}</th>
+				<th bgcolor="#ffffff">价格</th>
+				<th bgcolor="#ffffff"></th>
 			</tr>
 			<!-- {foreach from=$goods_list item=goods} -->
 			<tr>
-				<td bgcolor="#ffffff" align="center">
+				<td bgcolor="#ffffff" align="center" class="flow_list">
 					<!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
 					<!-- {if $show_goods_thumb eq 1} -->
 						<a href="goods.php?id={$goods.goods_id}" target="_blank" class="f6">{$goods.goods_name}</a>
@@ -85,24 +83,43 @@
 				<!-- {/if} -->
 					</td>
 				<!-- {if $show_goods_attribute eq 1} 显示商品属性 -->
-				<td bgcolor="#ffffff">{$goods.goods_attr|nl2br}</td>
+				<td align="center" bgcolor="#ffffff">{$goods.goods_attr|nl2br}</td>
 				<!-- {/if} -->
 				<!-- {if $show_marketprice} 显示市场价 -->
-				<td align="right" bgcolor="#ffffff">{$goods.market_price}</td>
+				<!-- <td align="right" bgcolor="#ffffff">{$goods.market_price}</td> -->
 				<!-- {/if} -->
-				<td align="right" bgcolor="#ffffff" class="price">{$goods.goods_price}</td>
-				<td align="right" bgcolor="#ffffff">
+				<!-- <td align="right" bgcolor="#ffffff" class="price">{$goods.goods_price}</td> -->
+				<td align="center" bgcolor="#ffffff" class="buy_count_botton">
 					<!-- {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0} 普通商品可修改数量 -->
-					<input type="text" name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" size="4" class="InputBorder"  onkeydown="showdiv(this)"/>
+                    <a href="javascript:void(0)" onclick="changeCount(0,{$goods.goods_id})">-</a>
+					<input id="change_count_{$goods.goods_id}" type="text" name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" size="4" class="InputBorder"  onkeydown="showdiv(this)"/>
+                    <a href="javascript:void(0)" onclick="changeCount(1,{$goods.goods_id})">+</a>
 					<!-- {else} -->
 					{$goods.goods_number}
 					<!-- {/if} -->
+                    <script type="text/javascript">
+                         function changeCount(__msg,__id){
+                            var id= "change_count_" + __id;
+                            var changeobj = document.getElementById(id);
+                            var preValue = changeobj.value;
+                                if(__msg == 0 && preValue == 1){
+                                    return;
+                                }
+
+                                if(__msg == 0){
+                                    changeobj.value = parseInt(preValue)-1;
+                                }else{
+                                    changeobj.value = parseInt(preValue)+1;
+                                }
+                                //changePrice();
+                            }
+                    </script>
 				</td>
-				<td align="right" bgcolor="#ffffff" class="price">{$goods.subtotal}</td>
-				<td align="center" bgcolor="#ffffff">
-					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; " ><u class="b">{$lang.drop}</u></a>&nbsp;&nbsp;
+				<td align="center" bgcolor="#ffffff" class="price">{$goods.subtotal}</td>
+				<td class="flow_del" align="right" bgcolor="#ffffff">
+					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; " >{$lang.drop}</a>&nbsp;&nbsp;
 					<!-- {if $smarty.session.user_id gt 0} 如果登录了，可以加入收藏 -->
-					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_to_collect&amp;id={$goods.rec_id}'; " ><u class="b">{$lang.drop_to_collect}</u></a>
+					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_to_collect&amp;id={$goods.rec_id}'; " >{$lang.drop_to_collect}</a>
 					<!-- {/if} -->
 					</td>
 			</tr>
@@ -111,14 +128,14 @@
 		</table>
 		<table class="pricetotal"  width="100%" align="center" border="0" cellpadding="5" cellspacing="0">
 			<tr>
-				<td class="f1 f14b " align="right">
-				<!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
-				{$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!-- {/if} -->
+				<td class="f1 f14b " align="left">
+				<!-- {if $discount gt 0} -->{*$your_discount*}<br /><!-- {/if} -->
+				{$shopping_money}<!-- {if $show_marketprice} -->{*$market_price_desc*}<!-- {/if} -->
 				</td>
-				<!-- <td align="right">
+				<td align="right" class="updata_cart">
 					<input type="button" value="{$lang.clear_cart}" class="bnt_number6" onclick="location.href='flow.php?step=clear'" />
 					<input name="submit" type="submit" class="bnt_number6" value="{$lang.update_cart}" />
-				</td> -->
+				</td> 
 			</tr>
 		</table>
 		<input type="hidden" name="step" value="update_cart" />
@@ -240,15 +257,15 @@
 	<form action="flow.php" method="post" class="floatTable clearfix">
 		<table width="100%" align="center" border="0" cellpadding="5" >
 			<tr>
-				<td align="right" bgcolor="#ffffff">{$lang.favourable_name}</td>
+				<td align="center" bgcolor="#ffffff">{$lang.favourable_name}</td>
 				<td bgcolor="#ffffff"><strong>{$favourable.act_name}</strong></td>
 			</tr>
 			<tr>
-				<td align="right" bgcolor="#ffffff">{$lang.favourable_period}</td>
+				<td align="center" bgcolor="#ffffff">{$lang.favourable_period}</td>
 				<td bgcolor="#ffffff" class="f1">{$favourable.start_time} --- {$favourable.end_time}</td>
 			</tr>
 			<tr>
-				<td align="right" bgcolor="#ffffff">{$lang.favourable_range}</td>
+				<td align="center" bgcolor="#ffffff">{$lang.favourable_range}</td>
 				<td bgcolor="#ffffff">{$lang.far_ext[$favourable.act_range]}<br />
 				{$favourable.act_range_desc}</td>
 			</tr>
@@ -257,7 +274,7 @@
 				<td bgcolor="#ffffff" class="f1">{$favourable.formated_min_amount} --- {$favourable.formated_max_amount}</td>
 			</tr>
 			<tr>
-				<td align="right" bgcolor="#ffffff">{$lang.favourable_type}</td>
+				<td align="center" bgcolor="#ffffff">{$lang.favourable_type}</td>
 				<td bgcolor="#ffffff">
 					<span class="STYLE1">{$favourable.act_type_desc}</span>
 					<!-- {if $favourable.act_type eq 0} -->
@@ -270,7 +287,7 @@
 			</tr>
 			<!-- {if $favourable.available} -->
 			<tr>
-				<td align="right" bgcolor="#ffffff">&nbsp;</td>
+				<td align="center" bgcolor="#ffffff">&nbsp;</td>
 				<td align="center" bgcolor="#ffffff">
 				<input type="submit" class="bnt_number4" value="立即购买" /></td>
 			</tr>
@@ -351,7 +368,7 @@ var flow_no_shipping = "{$lang.flow_no_shipping}";
 			</td>
 			<td bgcolor="#ffffff">{$goods.goods_attr|nl2br}</td>
 			<!-- {if $show_marketprice} -->
-			<td align="right" bgcolor="#ffffff">{$goods.formated_market_price}</td>
+			<td align="center" bgcolor="#ffffff">{$goods.formated_market_price}</td>
 			<!-- {/if} -->
 			<td bgcolor="#ffffff" align="right"  class="price">{$goods.formated_goods_price}</td>
 			<td bgcolor="#ffffff" align="right">{$goods.goods_number}</td>

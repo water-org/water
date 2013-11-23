@@ -13,10 +13,13 @@
                 <!-- {/foreach} -->
              </div>
             </div>
-         <!-- {/foreach} -->    
+         <!-- {/foreach} -->   
+          <div class="wx">
+            <img src="images/wx.jpg"/>
+         </div>  
          <div class="share">
             <p class="share_title">分享到：</p>
-            <script type="text/javascript">R
+            <script type="text/javascript">
                 bShareOpt = {
                    uuid: "", 
                    url: "http://baidu.com", //商品的永久链接

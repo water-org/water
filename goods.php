@@ -139,6 +139,7 @@ if (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'gotopage')
 
 $cache_id = $goods_id . '-' . $_SESSION['user_rank'].'-'.$_CFG['lang'];
 $cache_id = sprintf('%X', crc32($cache_id));
+
 if (!$smarty->is_cached('goods.dwt', $cache_id) || 1)
 {
     $smarty->assign('image_width',  $_CFG['image_width']);
@@ -239,8 +240,11 @@ if (!$smarty->is_cached('goods.dwt', $cache_id) || 1)
 			}
 			$array = array('洁净度', '硬度', '活性', '抗氧化性');
 			if(in_array($a['name'], $array)) {
-					$params[] = $a;
-			}
+                $a['activevalue'] = $a['value']/5*80;
+                $a['normalvalue'] = 80-($a['value']/5*80);
+                $params[] = $a;
+
+			}           
 		}
 		foreach($properties['spe'] as $key => &$a) {
 			foreach ($a['values'] as &$b) {
@@ -248,11 +252,10 @@ if (!$smarty->is_cached('goods.dwt', $cache_id) || 1)
 				$b['real_price_formated'] = price_format($b['real_price']);
 			}
 		}
-// 		print_r($properties);die;
+        
 		$smarty->assign('fit_range', $fit_range);
 		$smarty->assign('origin', $origin);
 		$smarty->assign('warter_params', $params);
-		
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
         $smarty->assign('specification',       $properties['spe']);                              // 商品规格
         $smarty->assign('attribute_linked',    get_same_attribute_goods($properties));           // 相同属性的关联商品
@@ -275,7 +278,11 @@ if (!$smarty->is_cached('goods.dwt', $cache_id) || 1)
         assign_dynamic('goods');
         $volume_price_list = get_volume_price_list($goods['goods_id'], '1');
         $smarty->assign('volume_price_list',$volume_price_list);    // 商品优惠价格区间
+        // print_r($volume_price_list);
+        // die;
+
     }
+
 }
 
 /* 记录浏览历史 */
