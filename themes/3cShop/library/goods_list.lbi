@@ -72,6 +72,7 @@
                 <div class="description_box">
                    <p class="baby_name">
                         <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a><br />
+                        <img class="actionicon" src="images/xia.png"/>
                     </p>
                     
 

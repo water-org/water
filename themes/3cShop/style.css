@@ -251,13 +251,15 @@ padding-left:12px;
         margin:0 10px 20px 20px;
         line-height: 20px;
         width: 413px;
+        height: 131px;
     }
     .baby_name{
         border-bottom: 1px solid #fff;
-        width: 100%;
+        width: 99%;
         height: 40px;
         line-height: 40px;
         margin-bottom: 10px;
+        position: relative;
 
     }
     .buy_action{
@@ -1641,6 +1643,13 @@ _   position:relative; top:3px;
 }
 .baby_place{
     position: absolute;
-    left: 320px;
+    left: 310px;
     top: 54px;
+}
+.actionicon{
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    cursor: pointer;
+    padding: 10px;
 }
