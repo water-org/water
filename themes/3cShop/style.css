@@ -95,7 +95,7 @@ font-size:12px;
 }
 .search_box{
     position: absolute;
-    top:320px;
+    top:270px;
     right: 40px;
 }
 .tips{
@@ -244,17 +244,21 @@ padding-left:12px;
     *display:inline;
     position: relative;
 
-}   .description_box{
-        position: absolute;
+} 
+.description_prebox{
+    position: absolute;
+    left: 0px;
+    bottom: -141px;
+}
+.description_box{
         color: #fff;
         text-align: left;
         z-index: 100;
-        left: 0;
-        bottom: -141px;
         margin:0 10px 20px 20px;
         line-height: 20px;
         width: 433px;
         height: 161px;
+        position: relative;
     }
     .baby_name{
         border-bottom: 1px solid #fff;
@@ -279,11 +283,17 @@ padding-left:12px;
          filter:alpha(opacity=60);
          -moz-opacity:0.6;
          opacity: 0.6;
-         left: 0;
-         bottom: -141px;
          width: 465px;
          height: 180px;
+        left: 0;
+        top: 0;
 
+    }
+    .goods_list_action_obj{
+        position: absolute;
+         width: 465px;
+         height: 180px;
+        z-index: 110;
     }
     .description_box p.baby_name a,
     .description_box p.baby_name a:link,
@@ -323,10 +333,10 @@ width:210px;margin-right:8px;
     width:720px;
 }
 #articleLeft{
-width:740px;margin:0 8px 8px 0;
+width:640px;margin:0 8px 8px 0;
 }
 #articleRight{
-width:190px;margin-bottom:8px;
+width:284px;
 }
 .w574{
 width:574px;
@@ -1227,8 +1237,8 @@ _   position:relative; top:3px;
 }
 /* ====================文章系列==================== */  
 .articleBox{
-    border:1px solid #d8d9d9; 
     padding:15px;
+
 }
 .articleTit{
     font-family:"微软雅黑"; 
@@ -1236,11 +1246,13 @@ _   position:relative; top:3px;
     font-size:18px;
 }
 .author{
-    border-bottom:1px solid #dcdddd; 
+    border-top:1px solid #dcdddd; 
     margin:10px 0 20px 0; 
     position:relative; 
     line-height:23px; 
-    padding-bottom:3px;
+    padding:10px 0px;
+    text-align: left;
+
 }
 .author .articleSize{
     position:absolute; 
@@ -1249,9 +1261,13 @@ _   position:relative; top:3px;
 }
 #article{
     margin-bottom:20px;
+    background:url(images/newsbg.jpg) left top repeat-y;
+    min-height: 550px;
+    text-indent: 2em;
+    line-height: 26px;
+    font-size: 14px;
 }
 .articlePrev{
-    border-top:1px solid #d8d9d9; 
     padding-top:10px; 
     margin-top:10px;
 }
@@ -1782,4 +1798,13 @@ _   position:relative; top:3px;
     font-weight: bold;
     text-align: left;
     color: #e4522b;
+}
+.ranking,.ranking a,.ranking a img{
+    width: 284px;
+    height: 168px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: #e3e3e3;
+    line-height: 168px;
+    text-align: center;
 }

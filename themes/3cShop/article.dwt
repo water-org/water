@@ -25,7 +25,7 @@
 <div class="block blank clearfix">
 <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/knowledge.lbi" --><!-- #EndLibraryItem -->
-  <div id="articleLeft" class="fl">
+  <div id="articleLeft" class="fl clearfix">
 	 <div class="articleBox blank">
 	  <h1 class="articleTit tc">{$article.title|escape:html}</h1>
 	  <div class="author tc">
@@ -37,9 +37,7 @@
 		 {$article.content}
 		</div> 
 		<!-- {/if} -->
-		{if $article.open_type eq 2 or $article.open_type eq 1}
-			<div class="tr"><a href="{$article.file_url}" target="_blank"><u>{$lang.relative_file}</u></a></div>
-		{/if}
+	
 		 <div class="articlePrev">
 			<!-- 上一篇文章 -->
 				 {$lang.next_article}：
@@ -57,10 +55,10 @@
 				{/if}
 		 </div>
 	</div>	
-  <div class="ArticleComm">
+  <div class="ArticleComm clearfix">
 	</div>
 	</div>
-	<div id="articleRight" class="fr">
+	<div id="articleRight" class="fr clearfix">
 	<!-- {if $related_goods} -->
 	<h1 class="topTit">{$lang.releate_goods}</h1>
 	<div class="topbox topContent blank">
@@ -80,8 +78,7 @@
 	</div>
 	<!-- {/if} --> 
 	<!-- TemplateBeginEditable name="右边区域" -->
-	<!-- #BeginLibraryItem "/library/promotion_info.lbi" --><!-- #EndLibraryItem -->
-	<!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/ranking.lbi" --><!-- #EndLibraryItem -->
   <!-- TemplateEndEditable -->
 	</div>
  </div>

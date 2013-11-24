@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 {insert_scripts files='move.js'}
-<div class="mod2Tit clearfix blank hide">
+<div class="mod2Tit clearfix blank">
   <span class="fl">{$lang.goods_list}</span>
   <form method="GET" class="sort fr" name="listform">
   <font style="font-weight:100; font-size:12px;">{$lang.btn_display}：</font>
@@ -69,92 +69,91 @@
      <div class="goodsbox">
            <div class="imgbox">
                 <a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
-
-                <div id="description_box_{$value}" class="description_box">
-                   <p class="baby_name">
-                        <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a><br />
-                        <img id="imgaction_{$value}" onclick="movefun(this)" class="actionicon" src="images/shang.png"/>
-                    </p>
-                    
-
-                    <!-- {if $goods.attr.water_params} -->
-                    <!--{foreach from=$goods.attr.water_params item=attr}-->
-                    <p class="baby_ratings">
-                        <span class="baby_rating_name">{$attr.name}</span>：
-                        <span class="mrs rate">
-                            <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"</span>
-                        </span>
-                    </p>
-                    <!--{/foreach}-->
-                    <!--{/if}-->
-
-                    <!-- {if $goods.attr.capacity} -->
-                    <div class="baby_range">
-                    <!--{foreach from=$goods.attr.capacity item=capacity}-->
-                      <p>
-                          <span class="firstlable">{$capacity.label}</span>
-                          <span>{$capacity.real_price_formated}</span>
+                <div id="goods_actionobj_{$value}" onmouseover="movefun(this,0)" onmouseout="movefun(this,1)" class="goods_list_action_obj" style="left:0px;bottom:-141px;"></div>
+                <div  id="goods_action_{$value}" class="clearfix description_prebox">
+                  <div  class="description_box">
+                     <p class="baby_name">
+                          <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a><br />
+                          <img id="imgaction_{$value}" class="actionicon" src="images/shang.png"/>
                       </p>
-                    <!--{/foreach}-->
-                    </div>
-                    <!--{/if}-->
+                      
 
-                    
-
-                    <!-- {if $goods.attr.fit_range} -->
-                     <div class="baby_place">
-                      <p>
-                          <span>{$goods.attr.fit_range.name}</span>：
-                          <span>{$goods.attr.fit_range.value}</span>
+                      <!-- {if $goods.attr.water_params} -->
+                      <!--{foreach from=$goods.attr.water_params item=attr}-->
+                      <p class="baby_ratings">
+                          <span class="baby_rating_name">{$attr.name}</span>：
+                          <span class="mrs rate">
+                              <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"</span>
+                          </span>
                       </p>
-                    
-                    <!--{/if}-->
+                      <!--{/foreach}-->
+                      <!--{/if}-->
 
-                    <!-- {if $goods.attr.region} -->
-                    <p>
-                        <span>{$goods.attr.region.name}</span>：
-                        <span>{$goods.attr.region.value}</span>
-                    </p>
-                    </div>
-                    <!--{/if}-->
+                      <!-- {if $goods.attr.capacity} -->
+                      <div class="baby_range">
+                      <!--{foreach from=$goods.attr.capacity item=capacity}-->
+                        <p>
+                            <span class="firstlable">{$capacity.label}</span>
+                            <span>{$capacity.real_price_formated}</span>
+                        </p>
+                      <!--{/foreach}-->
+                      </div>
+                      <!--{/if}-->
 
-                </div>
-                <div class="description" id="description_{$value}"></div>
+                      
+
+                      <!-- {if $goods.attr.fit_range} -->
+                       <div class="baby_place">
+                        <p>
+                            <span>{$goods.attr.fit_range.name}</span>：
+                            <span>{$goods.attr.fit_range.value}</span>
+                        </p>
+                      
+                      <!--{/if}-->
+
+                      <!-- {if $goods.attr.region} -->
+                      <p>
+                          <span>{$goods.attr.region.name}</span>：
+                          <span>{$goods.attr.region.value}</span>
+                      </p>
+                      </div>
+                      <!--{/if}-->
+
+                  </div>
+                  <div class="description"></div>
+              </div>
            </div>
            <script type="text/javascript">
-                function movefun(__obj){
-                    if(__obj.src.indexOf("shang") != -1){
-                        __obj.src = "images/xia.png";
-                        var sn = __obj.id.split("_")[1];
-                        var box = "#description_box_" + sn;
-                        var opc = "#description_" + sn;
-
-                        move(box)
-                        .add('bottom', 141)
+                var mouseoverflag = 0,mouseoutflag=0;
+                function movefun(__obj,__sn){
+                    var id = __obj.id.split("_")[2];
+                    var act = "#goods_action_" + id;
+                    var imgobj= document.getElementById("imgaction_" + id);
+                    if(__sn== 0){
+                        imgobj.src = "images/xia.png";
+                        move(act)
+                        .set('bottom', '0px')
+                        .duration('0.5s')
                         .end();
 
-                        move(opc)
-                        .add('bottom', 141)
+                        move(__obj)
+                        .set('bottom', '0px')
+                        .duration('0.5s')
                         .end();
 
-                    }else{
-                        __obj.src = "images/shang.png";
-                        var sn = __obj.id.split("_")[1];
-                        var box = "#description_box_" + sn;
-                        var opc = "#description_" + sn;
-                        console.log(box);
-                        move(box)
-                        .add('bottom', -141)
+                    }else if(__sn== 1){
+                        imgobj.src = "images/shang.png";
+                        move(act)
+                        .set('bottom', '-141px')
+                        .duration('0.5s')
                         .end();
 
-                        move(opc)
-                        .add('bottom', -141)
+                        move(__obj)
+                        .set('bottom', '-141px')
+                        .duration('0.5s')
                         .end();
                     }
-                    
-                    
                 }
-            
            </script>
            
             <div class="buy_action">
