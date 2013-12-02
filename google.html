@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+
+<script>
+    //var myCenter=new google.maps.LatLng(39.908572,116.397813);
+
+    var poi = [
+        {x:39.908572,y:116.397813,href:"http://baidu.com",content:"什么水"},
+        {x:40.083388,y:116.412989,href:"http://sina.com",content:"什么水"},
+        {x:40.079540,y:116.432770,href:"http://google.com",content:"什么水"},
+        {x:39.973262,y:116.398655,href:"http://movie.baidu.com",content:"什么水"}
+    ];
+
+    function initialize(){
+        
+        var pois = [],markers=[],infowindow=[];
+        for(var i=0;i <poi.length;i++){
+            pois[i] = new google.maps.LatLng(poi[i].x,poi[i].y);
+        }
+
+        var mapProp = {
+              center:pois[0],
+              zoom:10,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        for(var j=0;j <poi.length;j++){
+            markers[j] = new google.maps.Marker({position:pois[j]});
+            markers[j].setMap(map);
+            infowindow[j] = new google.maps.InfoWindow({
+                content:'<a target="_blank" href="'+poi[j].href+'">'+poi[j].content+'</a>'
+            });
+
+            (function(j){
+                google.maps.event.addListener(markers[j], 'click', function() {
+                    infowindow[j].open(map,markers[j]);
+                });
+            })(j);
+        }
+
+
+    }
+
+   google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+    <div id="googleMap" style="width:932px;height:600px;"></div>
+</body>
+</html>

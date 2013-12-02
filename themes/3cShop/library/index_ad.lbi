@@ -1,23 +1,133 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- {if $index_ad eq 'sys'} -->
-  <script type="text/javascript">
-      var swf_width=952;
-      var swf_height=452;
-  </script>
-  <script type="text/javascript" src="data/flashdata/{$flash_theme}/cycle_image.js"></script>
-<!-- {elseif $index_ad eq 'cus'} -->
-  <!-- {if $ad.ad_type eq 0} -->
-    <a href="{$ad.url}" target="_blank"><img src="{$ad.content}" width="952" height="452" border="0"></a>
-  <!-- {elseif $ad.ad_type eq 1} -->
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="952" height="452">
-      <param name="movie" value="{$ad.content}" />
-      <param name="quality" value="high" />
-      <embed src="{$ad.content}" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="952" height="452"></embed>
-    </object>
-  <!-- {elseif $ad.ad_type eq 2} -->
-    {$ad.content}
-  <!-- {elseif $ad.ad_type eq 3} -->
-    <a href="{$ad.url}" target="_blank">{$ad.content}</a>
-  <!-- {/if} -->
-<!-- {else} -->
-<!-- {/if} -->
+
+  <style type="text/css">
+
+    img { border:0 }
+    li { list-style:none }
+    a img, img { -ms-interpolation-mode:bicubic }
+    body { font:12px/1.5 arial, helvetica, sans-serif; text-align:center; color:#333; background:#edf0eb; -webkit-font-smoothing:antialiased }
+    #bd { margin:auto;  width: 952px;height: 457px; text-align:left; zoom:1 }
+    a { color:#588c0e; text-decoration:none }
+    a:hover, a:active, a:focus { color:#588c0e; text-decoration:underline }
+    .cls { zoom:1 }
+    .share-item .share-items-hd {  width: 952px;height: 457px; margin:0 auto; overflow:hidden }
+    .share-item .share-items-hd li { float:left }
+    .share-item .share-items-hd li img { display:block; width: 952px;height: 457px; }
+    .share-item .share-items-bd { position:relative }
+    .share-item .share-items-bd .share-items-list { width:980px; overflow:hidden;position: absolute;left: 20px;bottom: 10px;z-index: 20;text-align: center;}
+    .share-item .share-items-bd .share-items-list ul { width:984px }
+    .share-item .share-items-bd .share-items-list li { width:10px; margin-right:4px; height:10px; overflow:hidden; background:#fff; text-align:center;display: inline-block;text-indent: 200px;}
+    .share-item .share-items-bd .share-items-list li a { color:#666; text-decoration:none; cursor:pointer }
+    .share-item .share-items-bd .share-items-list li .pic { width:10px; height:10px; border:1px solid #fff; background:#000; overflow:hidden }
+    .share-item .share-items-bd .share-items-list li img { display:block;width:10px; height:10px; }
+    .share-item .share-items-bd .share-items-list li p { height:20px; border-bottom:2px solid #fff; line-height:20px }
+    .share-item .share-items-bd .share-items-list li.selected{background: url(themes/3cShop/water/doudou.png) left top no-repeat;}
+    .share-item .share-items-bd .share-items-list li.unselected{ background: url(themes/3cShop/water/doudou_normal.png) left top no-repeat;}
+    .share-item .share-items-bd .share-items-list li a{
+        display: none;
+    }
+    .switch-fade { position:relative; }
+    .switch-fade .switch-content li { position:absolute; top:0; left:0; display:block; filter:alpha(opacity=0); opacity:0; }
+
+  </style>
+
+<script type="text/javascript" src="themes/3cShop/js/core_dom.js"></script>
+<div id="bd">
+  <div class="share-item switch-fade" id="top_banner"> 
+    
+    <!--{start:顶部轮播图 -->
+    
+    <div class="share-items-hd cls">
+      <ul class="switch-content cls">
+        <li><a href="http://discover.leho.com/" title="发现生活之美" target="_blank"><img src="data/afficheimg/1.jpg"/></a></li>
+        <li><a href="http://www.leho.com/zhuanti/shiguangzhou" title="记录时光 分享成长" target="_blank"><img src="data/afficheimg/2.jpg" alt="记录时光 分享成长"/></a></li>
+        <li><a href="http://z.leho.com/" title="不一样的生活方式" target="_blank"><img src="data/afficheimg/3.jpg" alt="不一样的生活方式"/></a></li>
+        <li><a href="http://guang.leho.com/bj" title="品质生活消费指南" target="_blank"><img src="data/afficheimg/1.jpg" alt="品质生活消费指南"/></a></li>
+        <li><a href="http://www.leho.com/content/promo/caizhuangyue/" title="爱乐活美丽彩妆月" target="_blank"><img src="data/afficheimg/2.jpg" alt="爱乐活美丽彩妆月"/></a></li>
+        <li><a href="http://z.leho.com/8731a211d5425c2378b99561" title="中国好月饼" target="_blank"><img src="data/afficheimg/3.jpg" alt="中国好月饼"/></a></li>
+      </ul>
+    </div>
+    <div class="share-items-bd">
+      <div class="share-items-list">
+        <ul class="switch-nav cls">
+          <li class="selected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+  
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="中国好月饼" /> </div>
+            </a> </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+
+Dom.ready(function(){
+  if (BB.Env.ie){
+    W(".switch-nav li a").on("click",function(e){
+      var el = e.target
+      while(el.tagName.toLowerCase() != "a"){
+        el = el.parentNode;
+      }
+      window.open(el.href);
+    });
+  }
+});
+</script>
+  </div>
+</div>
+<script type="text/javascript">
+Dom.ready(function () {
+  var Index = function(){
+    var initSlide = function(){
+      var fade = new Switch.Slide($('top_banner'), {
+        effect : 'fade',
+        animInterval : 500,
+        interval : 5000,
+        preventDefault: false,
+        events : ['mouseover']
+      });
+      fade.render();
+      var adFade = new Switch.Slide($('ad-bottom'), {
+        effect : 'fade',
+        animInterval : 500,
+        interval : 5000,
+        preventDefault: false,
+        events : ['mouseover']
+      });
+      adFade.render();
+    },
+    init = function(){
+      initSlide();
+      var loader = new ImageLoader(window,null,{
+        useOnload: false,
+        useEffect: true
+      });
+      loader.display();
+      initAnchor();
+      initSwitchBar();
+    };
+    return {
+      init:init
+    };
+  }();
+  Index.init();
+});
+</script>
