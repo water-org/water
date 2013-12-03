@@ -39,7 +39,7 @@ if(isset($_REQUEST['cat_id']) && $_REQUEST['cat_id'] < 0)
 
 $cache_id = sprintf('%X', crc32($_REQUEST['id'] . '-' . $_CFG['lang']));
 
-if (!$smarty->is_cached('article.dwt', $cache_id))
+if (!$smarty->is_cached('article.dwt', $cache_id) || 1)
 {
     /* 文章详情 */
     $article = get_article_info($article_id);
@@ -80,6 +80,7 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
     }
 
     $smarty->assign('article',      $article);
+    $smarty->assign('cat_id', $article['cat_id']);
     $smarty->assign('keywords',     htmlspecialchars($article['keywords']));
     $smarty->assign('description', htmlspecialchars($article['description']));
 
