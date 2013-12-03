@@ -56,6 +56,7 @@ function getSelectedAttributes(formBuy) {
  * 处理添加商品到购物车的反馈信息
  */
 function addToCartResponse(result) {
+  debugger
   if (result.error > 0) {
     // 如果需要缺货登记，跳转
     if (result.error == 2) {

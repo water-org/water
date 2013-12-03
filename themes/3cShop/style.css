@@ -483,7 +483,7 @@ padding:2px;margin:0px;cursor:pointer;background:#fff;
     color:#fff;
     }
     .cartBox p{
-        position:absolute;top:0px; right:3px; color:#fff;
+        /*position:absolute;top:0px; right:3px; color:#fff;*/
     }
 
 .collection{
@@ -1869,4 +1869,46 @@ _   position:relative; top:3px;
 }
 .aspirant_article #article{
     background: #fff;
+}
+/*购物车*/
+.cart-list {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    width: 345px;
+    top: 40px;
+    right: 0px;
+    border: 5px solid #5dc6d1;
+    padding: 10px;
+}
+.cart-list li {
+    position: relative;
+    border-bottom: 1px solid #5dc6d1;
+}
+.cart-list .cl-img {
+    width: 120px;
+    margin: 0;
+    display: inline-block;
+}
+.cart-list .cl-name {
+    width: 225px;
+    margin: 0;
+    display: inline-block;
+}
+.cart-list .cl-name a {
+    color: #e4522b;
+}
+.cart-list .cartlist-delicon {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+.cart-list .payforgoods {
+    float: right;
+    margin: 12px;
+    display: block;
+    width: 127px;
+    height: 46px;
+    border: none;
+    background: url(images/payforgoods.gif) no-repeat;
 }

@@ -71,14 +71,18 @@ var select_spe = "{$lang.select_spe}";
         <!-- 收藏 -->
         <a class="collection" href="user.php?act=collection_list">{insert name='collect_num'}</a>
 
-        <div class="cartBox">
+        <div id="cartBtn" class="cartBox">
             {insert_scripts files='transport.js'}
             <span  id="ECS_CARTINFO" class="none">{insert name='cart_info'}</span>
-            <span id="a1">{insert name='cart_info'}</span>
-
+            <span id="a1">{insert name='cart_info'}ssssssss</span>
+            {insert_scripts files='Template.js'}
+            {insert_scripts files='move.js'}
+{insert_scripts files='cart.js'}
             <p class="none">
                 <a href="flow.php">去结算</a>
             </p>
+            <div id="cartList" class="cart-list">
+            </div>
         </div>
 
         <div class="process">

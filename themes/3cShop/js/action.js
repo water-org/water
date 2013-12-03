@@ -110,10 +110,15 @@ function initAutoFocus(){
 }
 //购物车
 function cart(){
+    debugger
     var a=document.getElementById('ECS_CARTINFO').innerHTML;
     var b= /(\d+\.\d+)|(\d+)/g;
     var c=a.match(b);
     document.getElementById("a1").innerHTML = "<font>"+c[0]+"</font> 件（<font>￥"+c[1]+"</font>）";
+}
+// mouseover显示购物车信息
+function showCart() {
+    alert(234);
 }
 //销售排行
 function top10(id,cur){
