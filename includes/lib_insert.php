@@ -104,7 +104,7 @@ function insert_history()
  */
 function insert_cart_info()
 {
-    $sql = 'SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount' .
+    $sql = 'SELECT COUNT(*) AS number, SUM(goods_price * goods_number) AS amount' .
            ' FROM ' . $GLOBALS['ecs']->table('cart') .
            " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
     $row = $GLOBALS['db']->GetRow($sql);
@@ -123,7 +123,7 @@ function insert_cart_info()
 
 //     $str = sprintf($GLOBALS['_LANG']['cart_info'], $number, price_format($amount, false));
 		$str = sprintf("%s件（%s）", $number, price_format($amount, false));
-		return '<a href="flow.php" >'.$str.'</a>';
+		return '<a href="ajax.php?type=cart_info" >'.$str.'</a>';
 //     return '<a href="flow.php" title="' . $GLOBALS['_LANG']['view_cart'] . '">' . $str . '</a>';
 }
 
