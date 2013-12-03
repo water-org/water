@@ -27,29 +27,22 @@
  </div>
 </div>
 <!--主体内容 start-->
-<div class="block">
-<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+<div class="block clearfix">
 <!--#登录界面 start-->
-<!-- {if $action eq 'login'} -->
-  <div class="user_login  clearfix">
-	<h4>用户登录</h4>
+<!-- {if $action eq 'login' || $action eq 'register'} -->
+  <div class="user_login user_logins  clearfix" style="width:360px;">
+	<h4 style="width:329px">已注册用户请从这里登录</h4>
 	 <form name="formLogin" action="user.php" method="post" onsubmit="return userLogin()">
-    <table width="100%" border="0" align="left" cellpadding="3" cellspacing="5">
+    <table width="100%" border="0" align="left" cellpadding="3" cellspacing="5" class="login_table">
           <tr>
-            <td width="40%" align="right">{$lang.label_username}</td>
-            <td width="60%" align="left"><input name="username" type="text" size="25" class="InputBorder" /></td>
+            <td width="30%" align="right">{$lang.label_username}</td>
+            <td width="70%" align="left"><input name="username" type="text" size="25" class="InputBorder" /></td>
           </tr>
           <tr>
-            <td align="right" valign="top">{$lang.label_password}</td>
+            <td align="right" valign="top">密&nbsp;&nbsp;&nbsp;码</td>
             <td align="left">
-            <input name="password" type="password" size="15"  class="InputBorder" />
-            <a href="#blank" onclick="pwTips()">{$lang.get_password}？</a><br />
-						<div class="close" id="tips">
-						<span title="关闭" id="tipsClose" onclick=" pwTipsClose()"></span>
-						如果您忘记了密码，可以通过下面两种方式找回：<br />
-						1. <a href="user.php?act=qpassword_name">{$lang.get_password_by_question}</a><br />
-						2. <a href="user.php?act=get_password">{$lang.get_password_by_mail}</a>
-						</div>
+            <input name="password" type="password" size="25"  class="InputBorder" />
+            
 						<script type="text/javascript">
 						function pwTips(){
 						document.getElementById("tips").style.display = "block";
@@ -69,7 +62,18 @@
           <!--{/if}-->
 					<tr>
 					  <td>&nbsp;</td>
-            <td align="left"><input type="checkbox" value="1" name="remember" id="remember" /><label for="remember">{$lang.remember}</label></td>
+            <td align="left" class="login_info"><input type="checkbox" value="1" name="remember" id="remember" />
+
+            <label for="remember">记住登录状态</label>
+            <a class="remember" href="user.php?act=get_password">{$lang.get_password}？</a>
+            <!-- <a href="#blank" class="remember" onclick="pwTips()">{$lang.get_password}？</a><br /> -->
+            <div class="close" id="tips">
+            <span title="关闭" id="tipsClose" onclick=" pwTipsClose()"></span>
+            如果您忘记了密码，可以通过下面方式找回<br />
+            1. <a href="user.php?act=qpassword_name">{$lang.get_password_by_question}</a><br />
+            2. <a href="user.php?act=get_password">{$lang.get_password_by_mail}</a>
+            </div>
+            </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
@@ -77,30 +81,30 @@
             <input type="hidden" name="act" value="act_login" />
             <input type="hidden" name="back_act" value="{$back_act}" />
             <input type="submit" value="" class="bnt_join" /><br /><br />
-						<a href="user.php?act=register">{$lang.sign_up}！</a>
+						<!-- <a href="user.php?act=register">{$lang.sign_up}！</a> -->
             </td>
           </tr>
       </table>
    </form>
 	</div>
-<!--{/if}-->
+
 <!--#登录界面 end-->
 
 <!--*会员注册界面 start-->
-    <!--{if $action eq 'register'}-->
+
     <!-- {if $shop_reg_closed eq 1} -->
-		<div class="user_login  clearfix">
+		<div class="user_login user_logins  clearfix" style="margin-left:5px;width:570px;">
 		 <div class="tips">{$lang.shop_register_closed}</div>
 		</div>
 		<!-- {else} -->
     {insert_scripts files='utils.js'}
-		<div class="user_login  clearfix">
-	  <h4>{$lang.sign_up}</h4>
+		<div class="user_login user_logins  clearfix"  style="margin-left:10px;width:570px;">
+	  <h4>新用户注册</h4>
 		<form action="user.php" method="post" name="formUser" onsubmit="return register();">
       <table width="100%"  border="0" align="left" cellpadding="5" cellspacing="3">
         <tr>
-          <td width="40%" align="right">{$lang.label_username}</td>
-          <td width="60%" align="left">
+          <td width="30%" align="right">{$lang.label_username}</td>
+          <td width="70%" align="left">
           <input name="username" type="text" size="25" id="username" onblur="is_registered(this.value);" class="InputBorder"/>
             <span id="username_notice" style="color:#FF0000"> *</span>
           </td>
@@ -191,7 +195,7 @@
         <tr>
           <td>&nbsp;</td>
           <td class="actionSub">
-          <a href="user.php?act=login" class="txtdot">{$lang.want_login}</a><br />
+          <!-- <a href="user.php?act=login" class="txtdot">{$lang.want_login}</a><br /> -->
           </td>
         </tr>
       </table>
@@ -211,9 +215,9 @@
 <div class="user_login  clearfix">
 	<h4>{$lang.get_password}</h4>
     <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
-     <table width="100%" border="0" align="center" cellpadding="5">
+     <table width="100%" border="0" align="center" cellpadding="5" class="aspirant_get_password">
           <tr>
-            <td colspan="2" align="center" class="f1 f14b">{$lang.username_and_email}</td>
+            <td colspan="2" height="100px" align="center" class="f1 f14b">{$lang.username_and_email}</td>
           </tr>
           <tr>
             <td width="40%" align="right">{$lang.username}</td>
@@ -227,8 +231,8 @@
             <td></td>
             <td>
 						<input type="hidden" name="act" value="send_pwd_email" />   
-						<input type="submit" name="submit" value="{$lang.submit}" class="bnt_number4" />
-            <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" class="bnt_number6" />
+						<input type="submit" name="submit" value="{$lang.submit}" class="aspirant_btn" />
+            <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" class="aspirant_btn" />
 	         </td>
           </tr>
         </table>

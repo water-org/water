@@ -32,7 +32,7 @@
             markers[j] = new google.maps.Marker({position:pois[j]});
             markers[j].setMap(map);
             infowindow[j] = new google.maps.InfoWindow({
-                content:'<a target="_blank" href="'+poi[j].href+'">'+poi[j].content+'</a>'
+                content:'<a target="_blank" style="min-width:100px;display:inline-block" href="'+poi[j].href+'">'+poi[j].content+'</a>'
             });
 
             (function(j){

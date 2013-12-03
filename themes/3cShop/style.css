@@ -170,10 +170,25 @@ width:145px; background:url(images/bg.gif) no-repeat -197px -118px;
 width:49px; height:21px; border:none; background:url(images/bg.gif) no-repeat -200px  -307px;cursor:pointer;
 }
 .bnt_join{
-cursor:pointer;width:102px;height:43px;border:none;background:url(images/bg.gif) no-repeat 0 -408px;
+    cursor:pointer;
+    width:179px;
+    height:45px;
+    border:none;
+    background:url(images/login.jpg) no-repeat left top;
+    outline: none;
+    margin-top: 76px;
+}
+.remember,.remember:link{
+    color: #437a99!important;
+    padding-left: 30px;
 }
 .bnt_login{
-cursor:pointer;width:102px;height:43px;border:none;background:url(images/bg.gif) no-repeat -107px -408px;
+    cursor:pointer;
+    width:184px;
+    height:50px;
+    border:none;
+    background:url(images/register.jpg) no-repeat left top;
+    outline: none;
 }
 .txtdot{
 background:url(images/dot.gif) no-repeat 0 center; padding-left:10px;
@@ -200,7 +215,7 @@ a:active {color: #424242; text-decoration:none;}
 
 /* ====================通用模块==================== */
 .modbox{
-background:url(images/globeline.gif) no-repeat left top; padding-top:5px;
+padding-top:5px;
 }
 .modTit{
     height:30px; 
@@ -208,7 +223,6 @@ background:url(images/globeline.gif) no-repeat left top; padding-top:5px;
     font-weight:700; 
     font-size:14px; 
     padding:0 15px; 
-    background-color: #fdcf87;
 }
 .modTit .more,.mod2Tit .more{
     font-weight:100; 
@@ -1371,20 +1385,21 @@ _   position:relative; top:3px;
     margin-bottom:8px;
 }   
 .user_login{
-    width:978px;
-    border:1px solid #ccc;
+    width:952px;
     margin-bottom:8px;
-    padding:10px;
-    background:#fbfbfb;
+    float: left;
+}
+.user_logins{
+    margin:30px 0;
+    float: left;
 }
   .step_login h4,.user_login h4{
-        background:#d53a3e;
         line-height:28px;
         padding:0 10px;
         margin-bottom:15px;
         text-align:left;
-        color:#fff;
-        border-bottom:3px solid #e4e4e4;
+        color:#333333;
+        border-bottom:1px solid #c4bcb8;
     }
     .step_login h4.h4bg{
         background:#5c5c5c;
@@ -1447,27 +1462,30 @@ _   position:relative; top:3px;
     _height:345px;
 }
 .close{
-    border:2px solid #fe8802; 
+    border:1px solid #53c5ce; 
     float:left; 
-    background:#fffae7; 
+    background:#FAFDFF; 
     margin-top:8px; 
-    padding:20px 8px 10px 10px; 
+    padding:2px 8px 10px 10px; 
     width:265px; 
     position:relative;
     display:none;
+    line-height: 19px;
 }
 .close a{
-    text-decoration:underline;
+    text-decoration:none;
+    color: #437a99;
+
 }
 .close a:hover{
     text-decoration:none;
 }
 .close span{
     display:block; 
-    width:14px; 
-    height:14px; 
+    width:16px; 
+    height:16px; 
     overflow:hidden; 
-    background:url(images/close.gif) no-repeat 0 0;
+    background:url(images/del.png) no-repeat 0 0;
     position:absolute; 
     top:3px; 
     right:5px; 
@@ -1807,4 +1825,48 @@ _   position:relative; top:3px;
     background-color: #e3e3e3;
     line-height: 168px;
     text-align: center;
+}
+.buywater{
+    position: absolute;
+    left: 160px;
+    bottom: 15px;
+}
+.buywater a{
+    background-color: #fff;
+    outline: none;
+    color: #000;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 2px;
+    border: 1px solid #919191;
+}
+.login_table{
+    padding-top: 40px;
+    border-right: 1px dashed #ccc;
+}
+.login_info{
+    position: relative;
+}
+.login_info .close{
+    position: absolute;
+    top: 16px;
+    right: 48px;
+}
+.aspirant_btn{
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin: 30px 10px;
+}
+.aspirant_get_password{
+    border: 1px solid #dddcdb;
+    border-radius: 3px;
+    padding: 30px 0px;
+}
+.aspirant_article{
+    width: 952px!important;
+}
+.aspirant_article #article{
+    background: #fff;
 }
