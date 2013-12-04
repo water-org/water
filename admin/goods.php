@@ -597,6 +597,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     /* 处理商品图片 */
     $goods_img        = '';  // 初始化商品图片
     $goods_thumb      = '';  // 初始化商品缩略图
+    $hot_image = '';	//初始化轮播大图
     $original_img     = '';  // 初始化原始图片
     $old_original_img = '';  // 初始化原始图片旧图
 
@@ -736,6 +737,27 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         // }
     }
 
+    // 如果上传了轮播图片，相应处理
+    if (($_FILES['hot_image']['tmp_name'] != '' && $_FILES['hot_image']['tmp_name'] != 'none'))
+    {
+    	if ($_REQUEST['goods_id'] > 0)
+    	{
+    		/* 删除原来的图片文件 */
+    		$sql = "SELECT hot_image " .
+    				" FROM " . $ecs->table('goods') .
+    				" WHERE goods_id = '$_REQUEST[goods_id]'";
+    		$row = $db->getRow($sql);
+    		
+
+    		if ($row['hot_image'] != '' && is_file(ROOT_PATH . $row['hot_image']))
+    		{
+    			@unlink(ROOT_PATH . $row['hot_image']);
+    		}
+    		$hot_image = $image->upload_image($_FILES['hot_image']); // 轮播图片
+    	}
+    }
+    
+    $hot_image_title = isset($_REQUEST['hot_image_title']) ? $_REQUEST['hot_image_title'] : '';
 
     // 是否上传商品缩略图
     if (isset($_FILES['goods_thumb']) && $_FILES['goods_thumb']['tmp_name'] != '' &&
@@ -826,12 +848,12 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
-                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, " .
+                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, hot_image, hot_image_title, keywords, goods_brief, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, rank_integral, suppliers_id)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
-                    "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
+                    "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', '$hot_image', '$hot_image_title', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', '$is_on_sale', '$is_alone_sale', $is_shipping, ".
                     " '$_POST[goods_desc]', '" . gmtime() . "', '". gmtime() ."', '$goods_type', '$rank_integral', '$suppliers_id')";
@@ -840,12 +862,12 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
-                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, " .
+                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, hot_image, hot_image_title keywords, goods_brief, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, is_real, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, extension_code, rank_integral)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
-                    "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
+                    "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', '$hot_image', '$hot_image_title', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', 0, '$is_on_sale', '$is_alone_sale', $is_shipping, ".
                     " '$_POST[goods_desc]', '" . gmtime() . "', '". gmtime() ."', '$goods_type', '$code', '$rank_integral')";
@@ -881,6 +903,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
                 "promote_price = '$promote_price', " .
                 "promote_start_date = '$promote_start_date', " .
                 "suppliers_id = '$suppliers_id', " .
+                "hot_image_title = '$hot_image_title', " .
                 "promote_end_date = '$promote_end_date', ";
 
         /* 如果有上传图片，需要更新数据库 */
@@ -891,6 +914,10 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         if ($goods_thumb)
         {
             $sql .= "goods_thumb = '$goods_thumb', ";
+        }
+        if ($hot_image)
+        {
+        	$sql .= "hot_image = '$hot_image', ";
         }
         if ($code != '')
         {

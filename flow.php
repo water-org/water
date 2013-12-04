@@ -1817,11 +1817,18 @@ elseif ($_REQUEST['step'] == 'drop_goods')
 {
     $rec_id = intval($_GET['id']);
     flow_drop_cart_goods($rec_id);
-
     ecs_header("Location: flow.php\n");
     exit;
 }
-
+// 异步删除购物车中的商品
+elseif ($_REQUEST['step'] == 'ajaxdrop_goods')
+{
+    $rec_id = intval($_GET['id']);
+    $result = array();
+    $result['drop_count'] = ''.flow_drop_cart_goods($rec_id);
+    echo json_encode($result);
+    exit;
+}
 /* 把优惠活动加入购物车 */
 elseif ($_REQUEST['step'] == 'add_favourable')
 {
@@ -2381,6 +2388,7 @@ function flow_drop_cart_goods($id)
     /* 取得商品id */
     $sql = "SELECT * FROM " .$GLOBALS['ecs']->table('cart'). " WHERE rec_id = '$id'";
     $row = $GLOBALS['db']->getRow($sql);
+    $drop_count = 0;
     if ($row)
     {
         //如果是超值礼包
@@ -2424,10 +2432,11 @@ function flow_drop_cart_goods($id)
                     "AND rec_id = '$id' LIMIT 1";
         }
 
-        $GLOBALS['db']->query($sql);
+        $drop_count = $GLOBALS['db']->query($sql);
     }
 
     flow_clear_cart_alone();
+    return $drop_count;
 }
 
 /**

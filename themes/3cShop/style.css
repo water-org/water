@@ -1881,6 +1881,11 @@ _   position:relative; top:3px;
     border: 5px solid #5dc6d1;
     padding: 10px;
 }
+.cart-list ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
+}
 .cart-list li {
     position: relative;
     border-bottom: 1px solid #5dc6d1;
@@ -1889,11 +1894,20 @@ _   position:relative; top:3px;
     width: 120px;
     margin: 0;
     display: inline-block;
+    padding-top: 10px;
+
+}
+.cart-list .cl-img img {
+    width: 102px;
+    height: 60px;
 }
 .cart-list .cl-name {
-    width: 225px;
+    width: 200px;
     margin: 0;
     display: inline-block;
+    vertical-align: top;
+    padding-top: 10px;
+    line-height: 24px;
 }
 .cart-list .cl-name a {
     color: #e4522b;
@@ -1911,4 +1925,5 @@ _   position:relative; top:3px;
     height: 46px;
     border: none;
     background: url(images/payforgoods.gif) no-repeat;
+    margin: 12px -4px 0px 0px;
 }
