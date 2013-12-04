@@ -71,7 +71,7 @@ var select_spe = "{$lang.select_spe}";
         <!-- 收藏 -->
         <a class="collection" href="user.php?act=collection_list">{insert name='collect_num'}</a>
 
-        <div id="cartBtn" class="cartBox">
+        <div id="cartBtn" class="cartBox" update=1>
             {insert_scripts files='transport.js'}
             <!--<span id="ECS_CARTINFO" class="none">{insert name='cart_info'}</span>-->
             <span id="ECS_CARTINFO">{insert name='cart_info'}</span>

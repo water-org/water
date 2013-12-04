@@ -110,7 +110,6 @@ function initAutoFocus(){
 }
 //购物车
 function cart(){
-    debugger
     var a=document.getElementById('ECS_CARTINFO').innerHTML;
     var b= /(\d+\.\d+)|(\d+)/g;
     var c=a.match(b);

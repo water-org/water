@@ -70,10 +70,12 @@ function addToCartResponse(result) {
       alert(result.message);
     }
   } else {
-    var cartInfo = document.getElementById('ECS_CARTINFO');
-    var cart_url = 'flow.php?step=cart';
+    var cartInfo = document.getElementById('ECS_CARTINFO'),
+        cartBtn = document.getElementById('cartBtn'),
+        cart_url = 'flow.php?step=cart';
+    cartBtn.setAttribute('update', 1);
     if (cartInfo) {
-      cartInfo.innerHTML = result.content;
+        cartInfo.innerHTML = result.content;
     }
 
     if (result.one_step_buy == '1') {

@@ -2,17 +2,20 @@
     var cartBtnEl = document.getElementById('cartBtn'),
         cartListEl = document.getElementById('cartList'),
         cartTimer;
-    cartBtnEl.onclick= function() {
-        if (cartTimer) {
-            clearTimeout(cartTimer);
-            return;
+    cartBtnEl.onmouseover = function() {
+        var update = cartBtnEl.getAttribute('update');// 标示是否需要重新请求
+        clearTimeout(cartTimer);
+        if (update == '1') {
+            cartBtnEl.setAttribute('update', '0');
+            Ajax.call('ajax.php?type=cart_info', '', showCartList, 'GET', 'JSON');
+        } else {
+            cartListEl.style.display = 'block';
         }
-        Ajax.call('ajax.php?type=cart_info', '', showCartList, 'GET', 'JSON');
     };
     cartBtnEl.onmouseout = function() {
-        /*cartTimer = setTimeout(function(){
+        cartTimer = setTimeout(function(){
             cartListEl.style.display = 'none';
-        }, 50);*/
+        }, 128);
     };
     /**
      * 显示购物车明细列表
@@ -38,7 +41,7 @@
         ];
         var html = Tutu.Template(tpl, result);
         cartListEl.innerHTML = html;
-        cartListEl.style.display = '';
+        cartListEl.style.display = 'block';
     }
     /**
      *

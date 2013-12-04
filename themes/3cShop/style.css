@@ -1880,6 +1880,7 @@ _   position:relative; top:3px;
     right: 0px;
     border: 5px solid #5dc6d1;
     padding: 10px;
+    display: none;
 }
 .cart-list ul {
     overflow-y: auto;
@@ -1906,8 +1907,8 @@ _   position:relative; top:3px;
     margin: 0;
     display: inline-block;
     vertical-align: top;
-    padding-top: 10px;
-    line-height: 24px;
+    padding-top: 6px;
+    line-height: 20px;
 }
 .cart-list .cl-name a {
     color: #e4522b;
