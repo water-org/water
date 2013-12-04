@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<style>
+.switch-fade { position:relative; }
+.switch-fade .switch-content li { position:absolute; top:0; left:0; display:block; filter:alpha(opacity=0); opacity:0; }
+</style>
+<script type="text/javascript" src="js/core_dom.js"></script>
+</head>
+
+<body>
+<div id="bd">
+  <div class="share-item switch-fade" id="top_banner"> 
+    
+    <!--{start:顶部轮播图 -->
+    
+    <div class="share-items-hd cls">
+      <ul class="switch-content cls">
+        <li><a href="http://discover.leho.com/" title="发现生活之美" target="_blank"><img src="images/f69e795ecc0a8b6bf5855740d937dad2.jpg" alt="发现生活之美"/></a></li>
+        <li><a href="http://www.leho.com/zhuanti/shiguangzhou" title="记录时光 分享成长" target="_blank"><img src="images/4805ab58f69b7c9c1845812842bf213c.jpg" alt="记录时光 分享成长"/></a></li>
+        <li><a href="http://z.leho.com/" title="不一样的生活方式" target="_blank"><img src="images/75526ff5905951a2422d8c31ea2a867d.jpg" alt="不一样的生活方式"/></a></li>
+        <li><a href="http://guang.leho.com/bj" title="品质生活消费指南" target="_blank"><img src="images/ea70900cad41fc4a4ebef23e3d4dd43b.jpg" alt="品质生活消费指南"/></a></li>
+        <li><a href="http://www.leho.com/content/promo/caizhuangyue/" title="爱乐活美丽彩妆月" target="_blank"><img src="images/8f83f3ef7006d8018bf8de68933c4dab.jpg" alt="爱乐活美丽彩妆月"/></a></li>
+        <li><a href="http://z.leho.com/8731a211d5425c2378b99561" title="中国好月饼" target="_blank"><img src="images/9c5a2fb2984b40a7cbdbc705c270a735.jpg" alt="中国好月饼"/></a></li>
+      </ul>
+    </div>
+    <div class="share-items-bd">
+      <div class="share-items-list">
+        <ul class="switch-nav cls">
+          <li class="selected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+  
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="" /> </div>
+
+            </a> </li>
+          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
+            <div class="pic"> <img src="" alt="中国好月饼" /> </div>
+            </a> </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+
+Dom.ready(function(){
+	if (BB.Env.ie){
+		W(".switch-nav li a").on("click",function(e){
+			var el = e.target
+			while(el.tagName.toLowerCase() != "a"){
+				el = el.parentNode;
+			}
+			window.open(el.href);
+		});
+	}
+});
+</script>
+  </div>
+</div>
+<script type="text/javascript">
+Dom.ready(function () {
+	var Index = function(){
+		var initSlide = function(){
+			var fade = new Switch.Slide($('top_banner'), {
+				effect : 'fade',
+				animInterval : 500,
+				interval : 5000,
+				preventDefault: false,
+				events : ['mouseover']
+			});
+			fade.render();
+			var adFade = new Switch.Slide($('ad-bottom'), {
+				effect : 'fade',
+				animInterval : 500,
+				interval : 5000,
+				preventDefault: false,
+				events : ['mouseover']
+			});
+ 			adFade.render();
+		},
+		init = function(){
+			initSlide();
+			var loader = new ImageLoader(window,null,{
+				useOnload: false,
+				useEffect: true
+			});
+			loader.display();
+			initAnchor();
+			initSwitchBar();
+		};
+		return {
+			init:init
+		};
+	}();
+	Index.init();
+});
+</script>
+
+</body>
+</html>
