@@ -39,41 +39,19 @@
     
     <div class="share-items-hd cls">
       <ul class="switch-content cls">
-        <li><a href="http://discover.leho.com/" title="发现生活之美" target="_blank"><img src="data/afficheimg/1.jpg"/></a></li>
-        <li><a href="http://www.leho.com/zhuanti/shiguangzhou" title="记录时光 分享成长" target="_blank"><img src="data/afficheimg/2.jpg" alt="记录时光 分享成长"/></a></li>
-        <li><a href="http://z.leho.com/" title="不一样的生活方式" target="_blank"><img src="data/afficheimg/3.jpg" alt="不一样的生活方式"/></a></li>
-        <li><a href="http://guang.leho.com/bj" title="品质生活消费指南" target="_blank"><img src="data/afficheimg/1.jpg" alt="品质生活消费指南"/></a></li>
-        <li><a href="http://www.leho.com/content/promo/caizhuangyue/" title="爱乐活美丽彩妆月" target="_blank"><img src="data/afficheimg/2.jpg" alt="爱乐活美丽彩妆月"/></a></li>
-        <li><a href="http://z.leho.com/8731a211d5425c2378b99561" title="中国好月饼" target="_blank"><img src="data/afficheimg/3.jpg" alt="中国好月饼"/></a></li>
+      <!-- {foreach from=$hot_goods item=hot_good} -->
+      <li><a href="{$hot_good.link}" title="{$hot_good.hot_image_title}" target="_blank"><img src="{$hot_good.hot_image}" alt="{$hot_good.hot_image_title}"/></a></li>
+      <!--{/foreach}-->
       </ul>
     </div>
     <div class="share-items-bd">
       <div class="share-items-list">
         <ul class="switch-nav cls">
-          <li class="selected"> <a href="javascript:void(0)" title="" target="_blank">
+             <!-- {foreach from=$hot_goods key=key item=hot_good} -->
+             <li class="{if $key eq 0}selected{/if}"> <a href="javascript:void(0)" title="" target="_blank">
             <div class="pic"> <img src="" alt="" /> </div>
-
             </a> </li>
-          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
-            <div class="pic"> <img src="" alt="" /> </div>
-  
-            </a> </li>
-          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
-            <div class="pic"> <img src="" alt="" /> </div>
-
-            </a> </li>
-          </li>
-          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
-            <div class="pic"> <img src="" alt="" /> </div>
-
-            </a> </li>
-          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
-            <div class="pic"> <img src="" alt="" /> </div>
-
-            </a> </li>
-          <li class="unselected"> <a href="javascript:void(0)" title="" target="_blank">
-            <div class="pic"> <img src="" alt="中国好月饼" /> </div>
-            </a> </li>
+             <!--{/foreach}-->
         </ul>
       </div>
     </div>

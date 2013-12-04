@@ -95,7 +95,7 @@ if ($act == 'cat_rec')
 /* 缓存编号 */
 $cache_id = sprintf('%X', crc32($_SESSION['user_rank'] . '-' . $_CFG['lang']));
 
-if (!$smarty->is_cached('index.dwt', $cache_id))
+if (!$smarty->is_cached('index.dwt', $cache_id) || 1)
 {
     assign_template();
 
@@ -114,9 +114,14 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('helps',           get_shop_help());       // 网店帮助
     $smarty->assign('top_goods',       get_top10());           // 销售排行
 
+    $hot_goods = get_recommend_goods('hot');
+    foreach ($hot_goods as &$hot_good) {
+    	$hot_good['link'] = '/goods.php?id=' . $hot_good['id'];
+    }
+//     print_r($hot_goods);die;
     $smarty->assign('best_goods',      get_recommend_goods('best'));    // 推荐商品
     $smarty->assign('new_goods',       get_recommend_goods('new'));     // 最新商品
-    $smarty->assign('hot_goods',       get_recommend_goods('hot'));     // 热点文章
+    $smarty->assign('hot_goods',       $hot_goods);     // 热点文章
     $smarty->assign('promotion_goods', get_promote_goods()); // 特价商品
     $smarty->assign('brand_list',      get_brands());
     $smarty->assign('promotion_info',  get_promotion_info()); // 增加一个动态显示所有促销信息的标签栏
