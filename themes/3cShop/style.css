@@ -44,7 +44,9 @@ font-size:12px;
 .inline{display:inline;}
 .none{display:none;}
 .InputBorder{
-    border:1px solid #ccc;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 0 0 5px;
 }
 #requirement{
     width: 172px;
@@ -55,6 +57,10 @@ font-size:12px;
     text-indent: 1em;
     float: left;
 
+}
+.us_contentBox table{
+    margin-bottom: 20px;
+    line-height: 30px;
 }
 .articlelist_box{
     background: url(images/articlebg.jpg) left top no-repeat;
@@ -97,6 +103,15 @@ font-size:12px;
     position: absolute;
     top:270px;
     right: 40px;
+}
+.search_box .bnt_number4{
+    width:30px; 
+    height: 33px;
+    text-indent: -100px;
+    outline: none;
+    margin:0px;
+    float: left;
+    background:url(images/search_r.jpg) no-repeat left top;
 }
 .tips{
 text-align:center; 
@@ -146,19 +161,31 @@ border:none;text-align:center;font-weight:100;color:#611829;height:22px; vertica
 padding-top:4px\9;*padding-top:3px;
 }
 .bnt_number2{
-width:48px; background:url(images/bg.gif) no-repeat -197px -40px;
-}
-.bnt_number4{
-    width:30px; 
     height: 33px;
-    text-indent: -100px;
+    padding: 3px 15px;
     outline: none;
     margin:0px;
-    float: left;
-    background:url(images/search_r.jpg) no-repeat left top;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #000;
+}
+.bnt_number4{
+    height: 33px;
+    padding: 3px 15px;
+    outline: none;
+    margin:0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #000;
 }
 .bnt_number6{
-width:94px; background:url(images/bg.gif) no-repeat -197px -66px;
+    height: 33px;
+    padding: 3px 15px;
+    outline: none;
+    margin:0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #000;
 }
 .bnt_number8{
 width:118px; background:url(images/bg.gif) no-repeat -197px -92px;
@@ -1328,6 +1355,8 @@ _   position:relative; top:3px;
 /* ====================购物流程==================== */  
 .floatTable{
     margin-bottom:10px;
+    width: 97%;
+    background-color: #f6f6f6;
 }
 .buycarlist{
     display: table;
@@ -1434,16 +1463,14 @@ _   position:relative; top:3px;
 }
 
 .us_contentBox{
-    border:1px solid #d8d8d8;
+    /*border:1px solid #d8d8d8;
     border-top:2px solid #cc4124;
     padding:10px;
-    margin-bottom:8px;
+    margin-bottom:8px;*/
 }
   .us_contentBox h6{
         height:25px;
         line-height:25px;
-        background:url(images/bg.gif) no-repeat -217px -376px;
-        background-color:#efefef;
         padding:0 20px;
         margin-bottom:10px;
         color:#213649;
