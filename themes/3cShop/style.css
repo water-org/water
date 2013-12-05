@@ -58,6 +58,11 @@ font-size:12px;
     float: left;
 
 }
+#changePrice{
+    height: 20px;
+    line-height: 20px;
+    padding: 0px;
+}
 .us_contentBox table{
     margin-bottom: 20px;
     line-height: 30px;
@@ -69,6 +74,7 @@ font-size:12px;
 .articlelist{
     padding-left: 2px;
 }
+
 .articlelist div{
     float: left;
     width: 165px;
@@ -1956,4 +1962,40 @@ _   position:relative; top:3px;
     border: none;
     background: url(images/payforgoods.gif) no-repeat;
     margin: 12px -4px 0px 0px;
+}
+.bought{
+    width: 219px!important;
+    height: 131px!important;
+}
+.bought_title{
+    background-color: #53c5cf;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+}
+.bought_box{
+    margin-bottom: 50px;
+    line-height: 32px;
+}
+.tagcontent p *{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
+}
+..tagcontent p{
+    padding: 20px 0px;
+}
+.tagcontent div{
+    color: #6a93cb;
+    border-bottom: 1px solid #6a93cb;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.tagcontent div *{
+    color: #6a93cb;
+    font-weight: bold;
+    font-size: 14px;
 }

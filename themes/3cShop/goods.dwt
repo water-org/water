@@ -351,8 +351,8 @@ openLine.onmouseout = function(){
 <!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/bought_goods.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/bought_note_guide.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+<!--{* #BeginLibraryItem "/library/bought_note_guide.lbi" --><!-- #EndLibraryItem *}-->
+<!-- {*#BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem *}-->
 <!-- TemplateEndEditable -->    
 </div>
 <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
