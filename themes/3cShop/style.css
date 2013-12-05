@@ -49,7 +49,7 @@ font-size:12px;
     padding: 0 0 0 5px;
 }
 #requirement{
-    width: 172px;
+    width: 165px;
     height: 33px;
     border:none;
     background: url(images/search_l.jpg) left top no-repeat;
@@ -112,6 +112,8 @@ font-size:12px;
     margin:0px;
     float: left;
     background:url(images/search_r.jpg) no-repeat left top;
+    border: none;
+    border-radius:0px;
 }
 .tips{
 text-align:center; 
