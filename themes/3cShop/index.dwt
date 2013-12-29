@@ -11,56 +11,207 @@
     <!-- TemplateEndEditable -->
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-    <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
     {* 包含脚本文件 *}
-{insert_scripts files='common.js,index.js'}
-    <script type="text/javascript" src="js/action.js"></script>
 
 </head>
 <body>
+    <div class="bgimg" id="bgimg">
+        <img src="images/indexbg.jpg">
+    </div>
 
-<!-- #BeginLibraryItem "/library/page_header.lbi" -->
-        <!-- #EndLibraryItem -->
-        <div class="pageWarp clearfix">
-            <div id="pageRight" class="fl">
-                <!-- #BeginLibraryItem "/library/cart.lbi" -->
-                <!-- #EndLibraryItem -->
-                <div class="clearfix" style="margin-top:-8px;">
-                    <div class="flashbox fl">
-                        <!-- #BeginLibraryItem "/library/index_ad.lbi" -->
-                        <!-- #EndLibraryItem --> </div>
-                </div>
-                <!-- TemplateBeginEditable name="右边区域" -->
-                <!-- TemplateEndEditable -->
-                <div class="clearfix blank">
-                    <ul class="poplist clearfix">
-                        <li><img src="images/poplist_1.jpg"/></li>
-                        <li><img src="images/poplist_2.jpg"/></li>
-                        <li><img src="images/poplist_3.jpg"/></li>
-                    </ul>
-                </div>
+    <div class="mask">
+        <div id="leftmask" onmouseover="setbgfun(this,0,'left')" onmouseout="setbgfun(this,1,'left')" class="left-mask"></div>
+        <div id="rightmask" onmouseover="setbgfun(this,0,'right')" onmouseout="setbgfun(this,1,'right')" class="right-mask"></div>
+    </div>
+    <div class="logo"></div>
+    <div class="content">
+        <!-- 左边区域 -->
+        <div class="left_content" onmouseover="setbgfun('#leftmask',0,'left')" onmouseout="setbgfun('#leftmask',1,'left')">
+            <!-- 图片 -->
+            <div class="understand">
+                <img id="understand" src="images/understand.png">
             </div>
-        </div>
-        <!-- #BeginLibraryItem "/library/help.lbi" -->
-        <!-- #EndLibraryItem -->
-        <!--{if $img_links  or $txt_links }-->
-        <div class="block blank">
-            <div class="links clearfix">
-                <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
-                <a href="{$link.url}" target="_blank" title="{$link.name}">
-                    <img src="{$link.logo}" alt="{$link.name}" />
-                </a>
-                <!--结束图片类型的友情链接{/foreach}-->
-                <!-- {if $txt_links} -->
-                <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
-                <a href="{$link.url}" target="_blank" title="{$link.name}" class="linkTxt">{$link.name}</a>
-                <!--结束文字类型的友情链接{/foreach}-->
-                <!-- {/if} --> </div>
-        </div>
-        <!--{/if}-->
-        <!-- #BeginLibraryItem "/library/page_footer.lbi" -->
-        <!-- #EndLibraryItem -->
+            <div class="usicon">
+                <img id="a1" src="images/index/a1.png"/>
+                <img id="a2" src="images/index/a2.png"/>
+                <img id="a3" src="images/index/a3.png"/>
+                <a href="article_cat.php?id=4" id="a4"><img src="images/index/more.png"/></a>
+            </div>
+             <!-- 文字 -->
+            <ul class="left_txt">
+                <!--{foreach from=$new_articles key=info item=url}-->
+                    <!--{if $info < 3}-->
+                    <li><a class="txt_black" href="{$url.url}">{$url.short_title}</a></li>
+                    <!--{/if}-->
+                <!--{/foreach}-->
 
+                <li><a class="txt_blue" href="article_cat.php?id=4">更多>></a></li>
+            </ul>
+        </div>
+
+        <!-- 右边区域 -->
+        <div class="right_content" onmouseover="setbgfun('#rightmask',0,'right')" onmouseout="setbgfun('#rightmask',1,'right')">
+            <!-- 图片 -->
+            <div class="buywater">
+                <img id="buywater" src="images/buywater.png">
+            </div>
+            <div class="bwicon">
+                <img id="w1" src="images/index/w1.png"/>
+                <img id="w2" src="images/index/w2.png"/>
+                <img id="w3" src="images/index/w3.png"/>
+                <img id="w4" src="images/index/w4.png"/>
+                <img id="w5" src="images/index/w5.png"/>
+                <a href="category.php?id=3" id="w6"><img src="images/index/more.png"/></a>
+            </div>
+            <!-- 文字 -->
+            <ul class="right_txt">
+                <li class="waterlist">
+                    <span class="txt_blue">优水联盟：</span>
+                    <!--{foreach from=$all_brand key=info item=url}-->
+                    <!--{if $info < 9}-->
+                    <a href="goods.php?id={$url.goods_id}">{$url.brand_name}</a>
+                    <!--{/if}-->
+                    <!--{/foreach}-->
+                </li>
+                <li><a class="txt_blue" href="category.php?id=3">更多>></a></li>
+            </ul>
+        </div>
+    </div>
 </body>
+
 </html>
+{insert_scripts files='move.js'}
+<script type="text/javascript">
+    window.onload = function(){
+        var bgimg = document.getElementById('bgimg');
+        bgimg.style.height = window.document.body.clientHeight - 112 + "px";
+
+        var leftmask = document.getElementById('leftmask');
+        var rightmask = document.getElementById('rightmask');
+        leftmask.onclick = function(){
+            window.location.href = "article_cat.php?id=4";
+        }
+        rightmask.onclick = function(){
+            window.location.href = "category.php?id=3";
+        }
+    }
+    function setbgfun(__obj,__pos,__dir){
+        if(__pos == 0){
+            move(__obj)
+                .set('opacity', '0')
+                .duration('0.5s')
+                .end();
+            if(__dir == "left"){
+
+                move('#a1')
+                    .set('top', '15px')
+                    .duration('0.2s')
+                    .end();
+                move('#a2')
+                    .set('top', '12px')
+                    .duration('0.6s')
+                    .end();
+                move('#a3')
+                    .set('top', '11px')
+                    .duration('0.4s')
+                    .end();
+                move('#a4')
+                    .set('top', '30px')
+                    .duration('0.7s')
+                    .end();
+                move('#understand')
+                    .set('top', '230px')
+                    .duration('1s')
+                    .end();
+
+            }else{
+                move('#w1')
+                    .set('top', '17px')
+                    .duration('0.1s')
+                    .end();
+                move('#w2')
+                    .set('top', '12px')
+                    .duration('0.6s')
+                    .end();
+                move('#w3')
+                    .set('top', '9px')
+                    .duration('0.2s')
+                    .end();
+                move('#w4')
+                    .set('top', '7px')
+                    .duration('0.4s')
+                    .end();
+                move('#w5')
+                    .set('top', '8px')
+                    .duration('0.5s')
+                    .end();
+                move('#w6')
+                    .set('top', '30px')
+                    .duration('0.3s')
+                    .end();
+                move('#buywater')
+                    .set('top', '230px')
+                    .duration('0.6s')
+                    .end();
+            }
+        }else{
+            move(__obj)
+                .set('opacity', '0.5')
+                .duration('0.5s')
+                .end();
+            if(__dir == 'left'){
+                move('#a1')
+                    .set('top', '-60px')
+                    .duration('0.2s')
+                    .end();
+                move('#a2')
+                    .set('top', '-60px')
+                    .duration('0.6s')
+                    .end();
+                move('#a3')
+                    .set('top', '-60px')
+                    .duration('0.4s')
+                    .end();
+                move('#a4')
+                    .set('top', '-60px')
+                    .duration('0.7s')
+                    .end();
+                move('#understand')
+                    .set('top', '19px')
+                    .duration('0.5s')
+                    .end();
+            }else{
+                move('#w1')
+                    .set('top', '-60px')
+                    .duration('0.1s')
+                    .end();
+                move('#w2')
+                    .set('top', '-60px')
+                    .duration('0.6s')
+                    .end();
+                move('#w3')
+                    .set('top', '-60px')
+                    .duration('0.2s')
+                    .end();
+                move('#w4')
+                    .set('top', '-60px')
+                    .duration('0.8s')
+                    .end();
+                move('#w5')
+                    .set('top', '-60px')
+                    .duration('0.3s')
+                    .end();
+                move('#w6')
+                    .set('top', '-60px')
+                    .duration('1s')
+                    .end();
+                move('#buywater')
+                    .set('top', '19px')
+                    .duration('0.5s')
+                    .end();
+            }
+        }
+    }
+</script>

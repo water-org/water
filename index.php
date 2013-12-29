@@ -131,6 +131,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id) || 1)
     $smarty->assign('group_buy_goods', index_get_group_buy());      // 团购商品
     $smarty->assign('auction_list',    index_get_auction());        // 拍卖活动
     $smarty->assign('shop_notice',     $_CFG['shop_notice']);       // 商店公告
+    $smarty->assign('all_brand',       get_recommend_goods('all'));  // 所有品牌
 
     /* 首页主广告设置 */
     $smarty->assign('index_ad',     $_CFG['index_ad']);
@@ -162,7 +163,8 @@ if (!$smarty->is_cached('index.dwt', $cache_id) || 1)
     /* 页面中的动态内容 */
     assign_dynamic('index');
 }
-
+// print_r(get_recommend_goods('all'));
+// die;
 $smarty->display('index.dwt', $cache_id);
 
 /*------------------------------------------------------ */

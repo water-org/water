@@ -183,11 +183,10 @@ function get_top10($cats = '')
  */
 function get_recommend_goods($type = '', $cats = '')
 {
-    if (!in_array($type, array('best', 'new', 'hot')))
+    if (!in_array($type, array('best', 'new', 'hot','all')))
     {
         return array();
     }
-
     //取不同推荐对应的商品
     static $type_goods = array();
     if (empty($type_goods[$type]))
@@ -196,6 +195,7 @@ function get_recommend_goods($type = '', $cats = '')
         $type_goods['best'] = array();
         $type_goods['new'] = array();
         $type_goods['hot'] = array();
+        $type_goods['all'] = array();
         $data = read_static_cache('recommend_goods');
         if ($data === false)
         {
@@ -210,6 +210,7 @@ function get_recommend_goods($type = '', $cats = '')
             $goods_data['new'] = array();
             $goods_data['hot'] = array();
             $goods_data['brand'] = array();
+            $type_goods['all'] = $goods_res;
             if (!empty($goods_res))
             {
                 foreach($goods_res as $data)
@@ -341,7 +342,17 @@ function get_recommend_goods($type = '', $cats = '')
             }
         }
     }
-    return $type_goods[$type];
+    if($type = 'all'){
+        $sql = 'SELECT g.goods_id, g.is_best, g.is_new, g.is_hot, g.is_promote, b.brand_name,g.sort_order,g.hot_image,g.hot_image_title ' .
+               ' FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
+               ' LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' .
+               ' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND (g.is_best = 1 OR g.is_new =1 OR g.is_hot = 1)'.
+               ' ORDER BY g.sort_order, g.last_update DESC';
+        return $GLOBALS['db']->getAll($sql);
+    }else{
+        return $type_goods[$type];
+    }
+    
 }
 
 /**

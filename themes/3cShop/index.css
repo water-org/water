@@ -1,0 +1,241 @@
+body{
+    font-size:12px;
+    font-family:"微软雅黑",Arial,Verdana;
+    line-height:150%;
+    margin:0;
+    padding:0;
+    color:#424242;
+    position: relative;
+    overflow: hidden;
+}
+h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,img,p{
+    margin:0;
+    padding:0;
+    border:none;
+    list-style-type:none;
+}
+img{
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+.bgimg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.bgimg img{
+    width: 100%;
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.left-mask{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0.5;
+    filter:alpha(opacity=50); 
+    -moz-opacity:0.5;
+    background-color: #000;
+}
+.right-mask{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0.5;
+    filter:alpha(opacity=50); 
+    -moz-opacity:0.5;
+    background-color: #000;
+}
+.logo{
+    width: 233px;
+    height: 148px;
+    background: url(images/logo.png) no-repeat left top;
+    _background-image: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.png');
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    margin-left: -115px;
+    z-index: 2;
+}
+.content{
+    position: absolute;
+    left: 50%;
+    top:67%;
+    background: url(images/bannerimg.png) no-repeat left top;
+    _background-image: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bannerimg.png');
+    width: 880px;
+    height: 285px;
+    margin-left: -459px;
+    margin-top: -148px;
+    z-index:3; 
+}
+.understand{
+    position: absolute;
+    left: 157px;
+    top: 38px;
+    z-index: 4;
+    overflow: hidden;
+    width: 283px;
+    height: 72px;
+
+}
+#understand{
+    position: absolute;
+    left: 53px;
+    top: 19px;
+    z-index: 4;
+}
+.buywater{
+    position: absolute;
+    right: 153px;
+    top: 38px;
+    z-index: 4;
+    width: 287px;
+    overflow: hidden;
+    height: 72px;
+}
+#buywater{
+    position: absolute;
+    right: 46px;
+    top: 19px;
+    z-index: 4;
+}
+.left_content{
+    left: 19px;
+    height: 285px;
+    width: 440px;
+    top: 0px;
+    position: absolute;
+}
+.right_content{
+    right: -19px;
+    height: 285px;
+    width: 440px;
+    top: 0px;
+    z-index: 3;
+    position: absolute;
+}
+
+.left_txt{
+    width: 360px;
+    text-align: right;
+    position: absolute;
+    left: 56px;
+    top: 123px;
+    z-index: 5;
+    height:100px;
+
+}
+.left_txt li a,.right_txt li a{
+    font-size: 14px;
+    line-height: 23px;
+    text-decoration: none;
+}
+.right_txt{
+    width: 350px;
+    text-align: left;
+    position: absolute;
+    right: 58px;
+    top: 123px;
+    z-index: 5;
+    height:100px; 
+}
+.hide{
+    display: none;
+}
+.bwicon{
+    position: absolute;
+    left: 0px;
+    top: 38px;
+    width: 303px;
+    overflow: hidden;
+    height: 72px;
+    z-index: 5;
+}
+#w1{
+    position: absolute;
+    left: 29px;
+    top: -60px;
+}
+#w2{
+    position: absolute;
+    left: 63px;
+    top: -60px;
+}
+#w3{
+    position: absolute;
+    left: 96px;
+    top: -60px;
+}
+#w4{
+    position: absolute;
+    left: 131px;
+    top: -60px;
+}
+#w5{
+    position: absolute;
+    left: 168px;
+    top: -60px;
+}
+#w6{
+    position: absolute;
+    left: 215px;
+    top: -60px;
+}
+.usicon{
+    position: absolute;
+    right: 0px;
+    top: 38px;
+    width: 303px;
+    overflow: hidden;
+    height: 72px;
+    z-index: 5;
+}
+#a1{
+    position: absolute;
+    left: 45px;
+    top: -60px;
+}
+#a2{
+    position: absolute;
+    left: 110px;
+    top: -60px;
+}
+#a3{
+    position: absolute;
+    left: 170px;
+    top: -60px;
+}
+#a4{
+    position: absolute;
+    left: 226px;
+    top: -60px;
+}
+.txt_black,.txt_black:link,.txt_black:visited,.txt_black:hover,.txt_black:active{
+    color: #000;
+    font-size: 14px;
+}
+.txt_blue,.txt_blue:link,.txt_blue:visited,.txt_blue:hover,.txt_blue:active{
+    color: #074287;
+    font-size: 14px;
+}
+.waterlist{
+    color: #0a6ad9;
+    font-size: 14px;
+}
+.waterlist a{
+    color: #0a6ad9;
+    padding: 0px 3px;
+    display: inline-block;
+}
