@@ -17,6 +17,9 @@
             cartListEl.style.display = 'none';
         }, 128);
     };
+    cartBtnEl.onclick = function() {
+        location.href = "flow.php";
+    };
     /**
      * 显示购物车明细列表
      */
