@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="Keywords" content="{$keywords}" />
@@ -10,15 +9,14 @@
     <!-- TemplateBeginEditable name="head" -->
     <!-- TemplateEndEditable -->
     <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="icon" href="animated_favicon.gif" type="image/gif" />
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
     {* 包含脚本文件 *}
 
 </head>
 <body>
-    <div class="bgimg" id="bgimg">
-        <img src="images/indexbg.jpg">
+    <div class="bgimg" >
+        <img id="bgimg" src="images/indexbg.jpg">
     </div>
 
     <div class="mask">
@@ -82,12 +80,10 @@
 </body>
 
 </html>
-{insert_scripts files='move.js'}
+{insert_scripts files='move.js,jquery.js'}
 <script type="text/javascript">
     window.onload = function(){
-        var bgimg = document.getElementById('bgimg');
-        bgimg.style.height = window.document.body.clientHeight - 112 + "px";
-
+        var bgimg = $('#bgimg');
         var leftmask = document.getElementById('leftmask');
         var rightmask = document.getElementById('rightmask');
         leftmask.onclick = function(){
@@ -96,121 +92,216 @@
         rightmask.onclick = function(){
             window.location.href = "category.php?id=3";
         }
+
+
+        bgimg.height($(window).height());
+              
     }
+    
+    $(window).resize(function() {
+        location.assign(location);
+    });
+
+
+
+
     function setbgfun(__obj,__pos,__dir){
         if(__pos == 0){
-            move(__obj)
-                .set('opacity', '0')
-                .duration('0.5s')
-                .end();
+
+            $(__obj).stop(true, false).animate({
+                opacity: 0
+              }, {
+                duration:200,
+                queue:false
+              });
+
+
             if(__dir == "left"){
+                $('#a1').stop(true, false).animate({
+                    top: '15px'
+                  }, {
+                    duration:150,
+                    queue:false
 
-                move('#a1')
-                    .set('top', '15px')
-                    .duration('0.2s')
-                    .end();
-                move('#a2')
-                    .set('top', '12px')
-                    .duration('0.6s')
-                    .end();
-                move('#a3')
-                    .set('top', '11px')
-                    .duration('0.4s')
-                    .end();
-                move('#a4')
-                    .set('top', '30px')
-                    .duration('0.7s')
-                    .end();
-                move('#understand')
-                    .set('top', '230px')
-                    .duration('1s')
-                    .end();
+                  });
+                $('#a2').stop(true, false).animate({
+                    top: '12px'
+                  }, {
+                    duration:80,
+                    queue:false
 
-            }else{
-                move('#w1')
-                    .set('top', '17px')
-                    .duration('0.1s')
-                    .end();
-                move('#w2')
-                    .set('top', '12px')
-                    .duration('0.6s')
-                    .end();
-                move('#w3')
-                    .set('top', '9px')
-                    .duration('0.2s')
-                    .end();
-                move('#w4')
-                    .set('top', '7px')
-                    .duration('0.4s')
-                    .end();
-                move('#w5')
-                    .set('top', '8px')
-                    .duration('0.5s')
-                    .end();
-                move('#w6')
-                    .set('top', '30px')
-                    .duration('0.3s')
-                    .end();
-                move('#buywater')
-                    .set('top', '230px')
-                    .duration('0.6s')
-                    .end();
+                  });
+                $('#a3').stop(true, false).animate({
+                    top: '11px'
+                  }, {
+                    duration:200,
+                    queue:false
+
+                  });
+                $('#a4').stop(true, false).animate({
+                    top: '30px'
+                  }, {
+                    duration:200,
+                    queue:false
+
+                  });
+
+                $('#understand').stop(true, false).animate({
+                    top: '230px'
+                  }, {
+                    duration:300,
+                    queue:false
+                  });
+
+            }else if(__dir == 'right'){
+                $('#w1').stop(true, false).animate({
+                    top: '17px'
+                  }, {
+                    duration:60,
+                    queue:false
+
+                  });
+                $('#w2').stop(true, false).animate({
+                    top: '12px'
+                  }, {
+                    duration:180,
+                    queue:false
+
+                  });
+                $('#w3').stop(true, false).animate({
+                    top: '9px'
+                  }, {
+                    duration:120,
+                    queue:false
+
+                  });
+                $('#w4').stop(true, false).animate({
+                    top: '7px'
+                  }, {
+                    duration:200,
+                    queue:false
+
+                  });
+                $('#w5').stop(true, false).animate({
+                    top: '8px'
+                  }, {
+                    duration:230,
+                    queue:false
+
+                  });
+                $('#w6').stop(true, false).animate({
+                    top: '30px'
+                  }, {
+                    duration:300,
+                    queue:false
+
+                  });
+
+                $('#buywater').stop(true, false).animate({
+                    top: '230px'
+                  }, {
+                    duration:150,
+                    queue:false
+
+                  });
             }
         }else{
-            move(__obj)
-                .set('opacity', '0.5')
-                .duration('0.5s')
-                .end();
+
+             $(__obj).stop(true, false).animate({
+                opacity: 0.5
+              }, {
+                duration:200,
+                queue:false
+
+              });
+
             if(__dir == 'left'){
-                move('#a1')
-                    .set('top', '-60px')
-                    .duration('0.2s')
-                    .end();
-                move('#a2')
-                    .set('top', '-60px')
-                    .duration('0.6s')
-                    .end();
-                move('#a3')
-                    .set('top', '-60px')
-                    .duration('0.4s')
-                    .end();
-                move('#a4')
-                    .set('top', '-60px')
-                    .duration('0.7s')
-                    .end();
-                move('#understand')
-                    .set('top', '19px')
-                    .duration('0.5s')
-                    .end();
-            }else{
-                move('#w1')
-                    .set('top', '-60px')
-                    .duration('0.1s')
-                    .end();
-                move('#w2')
-                    .set('top', '-60px')
-                    .duration('0.6s')
-                    .end();
-                move('#w3')
-                    .set('top', '-60px')
-                    .duration('0.2s')
-                    .end();
-                move('#w4')
-                    .set('top', '-60px')
-                    .duration('0.8s')
-                    .end();
-                move('#w5')
-                    .set('top', '-60px')
-                    .duration('0.3s')
-                    .end();
-                move('#w6')
-                    .set('top', '-60px')
-                    .duration('1s')
-                    .end();
-                move('#buywater')
-                    .set('top', '19px')
-                    .duration('0.5s')
-                    .end();
+                $('#a1').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:50,
+                    queue:false
+
+                  });
+                $('#a2').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:80,
+                    queue:false
+
+                  });
+                $('#a3').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:200,
+                    queue:false
+
+                  });
+                $('#a4').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:100,
+                    queue:false
+
+                  });
+
+                $('#understand').stop(true, false).animate({
+                    top: '19px'
+                  }, {
+                    duration:300,
+                    queue:false
+
+                  });
+            }else if(__dir == 'right'){
+                $('#w1').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:50,
+                    queue:false
+
+                  });
+                $('#w2').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:50,
+                    queue:false
+
+                  });
+                $('#w3').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:80,
+                    queue:false
+
+                  });
+                $('#w4').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:200,
+                    queue:false
+
+                  });
+                $('#w5').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:100,
+                    queue:false
+
+                  });
+                $('#w6').stop(true, false).animate({
+                    top: '-60px'
+                  }, {
+                    duration:100,
+                    queue:false
+
+                  });
+
+                $('#buywater').stop(true, false).animate({
+                    top: '19px'
+                  }, {
+                    duration:300,
+                    queue:false
+                  });
             }
         }
     }
