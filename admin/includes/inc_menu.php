@@ -37,18 +37,17 @@ $modules['02_cat_and_goods']['52_virtual_card_change'] = 'virtual_card.php?act=c
 $modules['02_cat_and_goods']['goods_auto']             = 'goods_auto.php?act=list';
 
 
-$modules['03_promotion']['02_snatch_list']          = 'snatch.php?act=list';
+//$modules['03_promotion']['02_snatch_list']          = 'snatch.php?act=list';
 $modules['03_promotion']['04_bonustype_list']       = 'bonus.php?act=list';
-$modules['03_promotion']['06_pack_list']            = 'pack.php?act=list';
-$modules['03_promotion']['07_card_list']            = 'card.php?act=list';
-$modules['03_promotion']['08_group_buy']            = 'group_buy.php?act=list';
-$modules['03_promotion']['09_topic']                = 'topic.php?act=list';
-$modules['03_promotion']['10_auction']              = 'auction.php?act=list';
-$modules['03_promotion']['12_favourable']           = 'favourable.php?act=list';
-$modules['03_promotion']['13_wholesale']            = 'wholesale.php?act=list';
-$modules['03_promotion']['14_package_list']         = 'package.php?act=list';
+//$modules['03_promotion']['06_pack_list']            = 'pack.php?act=list';
+//$modules['03_promotion']['07_card_list']            = 'card.php?act=list';
+//$modules['03_promotion']['08_group_buy']            = 'group_buy.php?act=list';
+//$modules['03_promotion']['10_auction']              = 'auction.php?act=list';
+//$modules['03_promotion']['12_favourable']           = 'favourable.php?act=list';
+//$modules['03_promotion']['13_wholesale']            = 'wholesale.php?act=list';
+//$modules['03_promotion']['14_package_list']         = 'package.php?act=list';
 //$modules['03_promotion']['ebao_commend']            = 'ebao_commend.php?act=list';
-$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
+//$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
 
 
 $modules['04_order']['02_order_list']               = 'order.php?act=list';
@@ -61,19 +60,19 @@ $modules['04_order']['08_add_order']                = 'order.php?act=add';
 $modules['04_order']['09_delivery_order']           = 'order.php?act=delivery_list';
 $modules['04_order']['10_back_order']               = 'order.php?act=back_list';
 
-$modules['05_banner']['ad_position']                = 'ad_position.php?act=list';
-$modules['05_banner']['ad_list']                    = 'ads.php?act=list';
+//$modules['05_banner']['ad_position']                = 'ad_position.php?act=list';
+//$modules['05_banner']['ad_list']                    = 'ads.php?act=list';
 
-$modules['06_stats']['flow_stats']                  = 'flow_stats.php?act=view';
-$modules['06_stats']['searchengine_stats']          = 'searchengine_stats.php?act=view';
+//$modules['06_stats']['flow_stats']                  = 'flow_stats.php?act=view';
+//$modules['06_stats']['searchengine_stats']          = 'searchengine_stats.php?act=view';
 $modules['06_stats']['z_clicks_stats']              = 'adsense.php?act=list';
 $modules['06_stats']['report_guest']                = 'guest_stats.php?act=list';
 $modules['06_stats']['report_order']                = 'order_stats.php?act=list';
 $modules['06_stats']['report_sell']                 = 'sale_general.php?act=list';
-$modules['06_stats']['sale_list']                   = 'sale_list.php?act=list';
+//$modules['06_stats']['sale_list']                   = 'sale_list.php?act=list';
 $modules['06_stats']['sell_stats']                  = 'sale_order.php?act=goods_num';
-$modules['06_stats']['report_users']                = 'users_order.php?act=order_num';
-$modules['06_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
+//$modules['06_stats']['report_users']                = 'users_order.php?act=order_num';
+//$modules['06_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
 
 $modules['07_content']['03_article_list']           = 'article.php?act=list';
 $modules['07_content']['02_articlecat_list']        = 'articlecat.php?act=list';

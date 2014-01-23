@@ -160,7 +160,7 @@
                 <a class="baby_buy" href="javascript:addToCart({$goods.goods_id})">
                     <img src="images/baby_buy.jpg">
                 </a>
-                <a class="baby_collection" href="javascript:collect({$goods.goods_id})">
+                <a class="baby_collection" href="{$goods.url}">
                     <img src="images/baby_collection.jpg">
                 </a>
                 <a class="baby_compare" href="javascript:;" id="compareLink" onClick="Compare.add({$goods.goods_id},'{$goods.goods_name|escape:"html"}','{$goods.type}', '{$goods.goods_thumb}');">
