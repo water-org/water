@@ -46,7 +46,7 @@
                     <!--{/if}-->
                 <!--{/foreach}-->
 
-                <li><a class="txt_blue" href="article_cat.php?id=4">更多>></a></li>
+                <li><a class="txt_blue" href="article_cat.php?id=4">全部知识>></a></li>
             </ul>
         </div>
 
@@ -74,7 +74,7 @@
                     <!--{/if}-->
                     <!--{/foreach}-->
                 </li>
-                <li><a class="txt_blue" href="category.php?id=3">更多>></a></li>
+                <li><a class="txt_blue" href="category.php?id=3">全部产品>></a></li>
             </ul>
         </div>
     </div>
