@@ -24,65 +24,59 @@
 </div>
 <div class="block blank clearfix">
 <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/knowledge.lbi" --><!-- #EndLibraryItem -->
+
+
   <div id="articleLeft" class="fl clearfix">
-	 <div class="articleBox blank">
-	  <h1 class="articleTit tc">{$article.title|escape:html}</h1>
-	  <div class="author tc">
-		  {$article.author|escape:html} / {$article.add_time}
-		  <div class="articleSize">[<a href="javascript:articleSize('16','30')">大</a>] [<a href="javascript:articleSize('14','24')">中</a>] [<a href="javascript:articleSize('12','21')">小</a>]</div>
-	  </div>
-		
-		<div id="article" class="word">
-			<!-- {if $article.content } -->
-		 		{$article.content}
-		 	<!-- {/if} -->
-		</div> 
-		
-	
-		 <div class="articlePrev">
-			<!-- 上一篇文章 -->
-				 {$lang.next_article}：
-				 {if $next_article}
-				 <a href="{$next_article.url}">{$next_article.title}</a>
-				 {else}
-				 Empty！
-				 {/if}<br />
-			 <!-- 下一篇文章 -->
-				{$lang.prev_article}：
-				{if $prev_article}
-				<a href="{$prev_article.url}">{$prev_article.title}</a>
-				{else}
-				 Empty！
-				{/if}
-		 </div>
-	</div>	
+     <div class="articleBox blank">
+      <h1 class="articleTit tc">{$article.title|escape:html}</h1>
+      <div class="author tc">
+          {$article.author|escape:html} / {$article.add_time}
+          <div class="articleSize">[<a href="javascript:articleSize('16','30')">大</a>] [<a href="javascript:articleSize('14','24')">中</a>] [<a href="javascript:articleSize('12','21')">小</a>]</div>
+      </div>
+        
+        <div id="article" class="word">
+            <!-- {if $article.content } -->
+                {$article.content}
+            <!-- {/if} -->
+        </div> 
+        
+    
+         <div class="articlePrev">
+            <!-- 上一篇文章 -->
+                 {$lang.next_article}：
+                 {if $next_article}
+                 <a href="{$next_article.url}">{$next_article.title}</a>
+                 {else}
+                 Empty！
+                 {/if}<br />
+             <!-- 下一篇文章 -->
+                {$lang.prev_article}：
+                {if $prev_article}
+                <a href="{$prev_article.url}">{$prev_article.title}</a>
+                {else}
+                 Empty！
+                {/if}
+         </div>
+    </div>  
   <div class="ArticleComm clearfix">
-	</div>
-	</div>
-	<div id="articleRight" class="fr clearfix">
-	<!-- {if $related_goods} -->
-	<h1 class="topTit">{$lang.releate_goods}</h1>
-	<div class="topbox topContent blank">
-		<!--{foreach from=$related_goods item=releated_goods_data}-->
-	    <ul class="attribute">
+    </div>
+    </div>
+    <div id="articleRight" class="fr clearfix">
+    <!-- {if $related_goods} -->
+    <div class=" blank">
+        <!--{foreach from=$related_goods item=releated_goods_data}-->
+        <ul class="attribute">
       <li class="clearfix">
        <a href="{$releated_goods_data.url}"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" align="left" /></a>
-			 <a href="{$releated_goods_data.url}" title="{$releated_goods_data.goods_name}">{$releated_goods_data.short_name}</a><br />
-			 <!-- {if $releated_goods_data.promote_price neq 0} -->
-			 {$lang.promote_price}<b class="f1">{$releated_goods_data.formated_promote_price}</b><br />
-			 <!-- {else} -->
-			 {$lang.shop_price}<b class="f1">{$releated_goods_data.shop_price}</b><br />
-			 <!-- {/if} -->
       </li>
      </ul>
-		<!--{/foreach}--> 
-	</div>
-	<!-- {/if} --> 
-	<!-- TemplateBeginEditable name="右边区域" -->
-	<!-- #BeginLibraryItem "/library/ranking.lbi" --><!-- #EndLibraryItem -->
+        <!--{/foreach}--> 
+    </div>
+    <!-- {/if} --> 
+    <!-- TemplateBeginEditable name="右边区域" -->
+    <!-- #BeginLibraryItem "/library/ranking.lbi" --><!-- #EndLibraryItem -->
   <!-- TemplateEndEditable -->
-	</div>
+    </div>
  </div>
 <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

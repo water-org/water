@@ -1,8 +1,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="user">
 {if $user_info}
-{$lang.hello}，<b class="username">{$user_info.username}</b>，{$lang.welcome_return}！
-<a href="user.php" class="userContent">{$lang.user_center}</a>
-| <a href="user.php?act=logout">{$lang.user_logout}</a>
+<a href="user.php" class="userContent">{$user_info.username}</a>
 {else}
-{$lang.hello}，{$lang.welcome}！ <a href="user.php">登录</a>/<a href="user.php?act=register">免费注册</a>
+<a href="user.php">我的优水</a>
 {/if}
+</div>

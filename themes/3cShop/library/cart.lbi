@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<div class="clearfix blank">
+<div class="clearfix">
   <div class="pageNav fl">
 	 <ul class="clearfix">
 		 <li {if $navigator_list.config.index eq 1 } class="curs"{/if}><a href="../index.php">{$lang.home}<br/>Home</a></li>

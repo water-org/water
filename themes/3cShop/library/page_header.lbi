@@ -7,22 +7,6 @@ var select_spe = "{$lang.select_spe}";
 </script>
 <div class="main_box clearfix">
 <div class="main_box clearfix">
-<div class="pageTop">
-    <div class="block clearfix">
-        <div class="fr">
-            {insert_scripts files='transport.js,utils.js'} <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}|</font> 
-            <!--{if $navigator_list.top}-->
-            <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
-            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->
-                target="_blank"
-                <!-- {/if} -->>{$nav.name}</a>
-            <!-- {if !$smarty.foreach.nav_top_list.last} -->
-            |
-            <!-- {/if} -->
-            <!-- {/foreach} -->
-            <!-- {/if} --> </div>
-    </div>
-</div>
 <div class="searchbox">
     <div class="logo fl">
         <a href="../index.php">
@@ -69,26 +53,29 @@ var select_spe = "{$lang.select_spe}";
     -->{/literal}</script>
 
         <!-- 收藏 -->
-        <a class="collection" href="user.php?act=collection_list">{insert name='collect_num'}</a>
+        {insert_scripts files='transport.js,utils.js'} 
+        <div id="ECS_MEMBERZONE" class="clearfix">{insert name='member_info'}</div> 
 
-        <div id="cartBtn" class="cartBox" update=1>
+        <div id="cartBtn" class="cartBox clearfix" update=1>
             {insert_scripts files='transport.js'}
             <!--<span id="ECS_CARTINFO" class="none">{insert name='cart_info'}</span>-->
             <span id="ECS_CARTINFO">{insert name='cart_info'}</span>
             <p class="none">
                 <a href="flow.php">去结算</a>
             </p>
-            <div id="cartList" class="cart-list">
+            <div id="cartList" class="cart-list clearfix">
+                
             </div>
+            <div id="carttotal" class="none">共计：{insert name='cart_info'}</div>
             {insert_scripts files='Template.js'}
             {insert_scripts files='move.js'}
             {insert_scripts files='cart.js'}
         </div>
 
         <div class="process">
-            <img src="images/authenticity.jpg"/>
-            <img src="images/shipping.jpg"/>
-            <img src="images/ship.jpg"/>
+            <a href="article_info.php?id=41"><img src="images/authenticity.jpg"/></a>
+            <a href="article_info.php?id=42"><img src="images/shipping.jpg"/></a>
+            <a href="article_info.php?id=43"><img src="images/ship.jpg"/></a>
         </div>
     </div>
 </div>

@@ -23,34 +23,28 @@
 <div id="pageLeft" class="fl">
  <div class="ArticleCate"><a href="catalog.php">全部分类</a></div>
  </div>
- <!--{/if }-->
+ <!--{/if}-->
  <div id="pageRight" class="fr">
  <!-- #BeginLibraryItem "/library/cart.lbi" --><!-- #EndLibraryItem -->
  </div>
+
 </div>
 <div class="block clearfix">
-  <!--{if $cat_id !==16}-->
-<div class="adver">
+  <br/>
+<!-- <div class="adver">
     <a href="map.php"><img src="themes/3cShop/water/adver_1.jpg"></a>
     <a class="rightad" href="article_info.php?id=44"><img src="themes/3cShop/water/adver_2.jpg"></a>
-</div>
- <!--{/if }-->
-  <!--{if $cat_id !==16}-->
-    <!-- #BeginLibraryItem "/library/knowledge.lbi" --><!-- #EndLibraryItem -->
-  <!--{else }-->
-  <br/>
-  <!--{/if }-->
+</div> -->
 	<div id="pageRight" class="fr">
-	  <!--{if $cat_id !==16}-->
-	<h1 class="search_box clearfix blank">
+	
+<!-- 	<h1 class="search_box clearfix blank">
 	 <form action="{$search_url}" name="search_form" method="post" class="fr">
         <input name="keywords" type="text" id="requirement" value="{$search_value}" size="40" class="InputBorder" />
         <input name="id" type="hidden" value="{$cat_id}" />
         <input name="cur_url" id="cur_url" type="hidden" value="" />
         <input type="submit" value="{$lang.button_search}" class="bnt_number4" />
   </form>
-	</h1>
-   <!--{/if }-->
+	</h1> -->
 	 <div class="articlelist_box clearfix">
 	 <div class="articlelist clearfix">
 

@@ -59,7 +59,10 @@ function addToCartResponse(result) {
   if (result.error > 0) {
     // 如果需要缺货登记，跳转
     if (result.error == 2) {
+      document.body.removeChild(docEle('speDiv'));
+      document.body.removeChild(docEle('mask'));
       if (confirm(result.message)) {
+        
         location.href = 'user.php?act=add_booking&id=' + result.goods_id + '&spec=' + result.product_spec;
       }
     }
@@ -67,15 +70,20 @@ function addToCartResponse(result) {
     else if (result.error == 6) {
       openSpeDiv(result.message, result.goods_id, result.parent);
     } else {
+      document.body.removeChild(docEle('speDiv'));
+      document.body.removeChild(docEle('mask'));
       alert(result.message);
     }
   } else {
     var cartInfo = document.getElementById('ECS_CARTINFO'),
         cartBtn = document.getElementById('cartBtn'),
+        carttotal = document.getElementById('carttotal'),
         cart_url = 'flow.php?step=cart';
     cartBtn.setAttribute('update', 1);
+
     if (cartInfo) {
         cartInfo.innerHTML = result.content;
+        carttotal.innerHTML = result.content;
     }
 
     if (result.one_step_buy == '1') {
@@ -89,7 +97,10 @@ function addToCartResponse(result) {
           if (!confirm(result.message)) location.href = cart_url;
           break;
         case '3':
-          alert("添加购物车成功");
+          if(!document.getElementById('speDiv')){
+            alert("添加购物车成功");
+          }
+          
           return;
           location.href = cart_url;
           break;
@@ -98,8 +109,46 @@ function addToCartResponse(result) {
       }
     }
   }
+  if(cartBtn){
+    cartBtn.onclick();
+    cartBtn.onclick();
+  }
+  
 }
+function movietocart(){
 
+    var obj = document.getElementById('speDiv');
+
+    var maxTop = parseInt(obj.style.top,10),
+        maxLeft = parseInt(obj.style.left,10),
+        maxwidth = parseInt(obj.style.width,10),
+        maxHeight = parseInt(obj.style.height,10),
+        maxcount = 20;
+
+    (function animater(){
+        if(maxTop > 20 && maxcount >0){
+            maxcount--;
+            maxTop-=15;
+            maxLeft+=15;
+            maxwidth-=5;
+            maxHeight-=5;
+            obj.style.top = maxTop + "px";
+            obj.style.left = maxLeft + "px";
+            obj.style.width = maxwidth + "px";
+            obj.style.height = maxHeight + "px";
+            window.setTimeout(animater,15);
+        }else{
+            obj.style.top = "20px";
+            obj.style.right = "30px";
+            obj.style.width = "20px";
+            obj.style.height = "20px";
+            document.body.removeChild(docEle('speDiv'));
+            document.body.removeChild(docEle('mask'));
+        }
+    })();
+
+
+}
 /* *
  * 添加商品到收藏夹
  */
@@ -728,10 +777,12 @@ function addPackageToCartResponse(result) {
       alert(result.message);
     }
   } else {
-    var cartInfo = document.getElementById('ECS_CARTINFO');
+    var cartInfo = document.getElementById('ECS_CARTINFO'),
+        carttotal = document.getElementById('carttotal');
     var cart_url = 'flow.php?step=cart';
     if (cartInfo) {
       cartInfo.innerHTML = result.content;
+      carttotal.innerHTML = result.content;
     }
 
     if (result.one_step_buy == '1') {
@@ -835,7 +886,7 @@ function openSpeDiv(message, goods_id, parent) {
   newDiv.style.position = "absolute";
   newDiv.style.zIndex = "10000";
   newDiv.style.width = "450px";
-  newDiv.style.height = "360px";
+  newDiv.style.height = "280px";
   newDiv.style.top = (parseInt(scrollPos + 120)) + "px";
   newDiv.style.left = (parseInt(document.body.offsetWidth) - 450) / 2 + "px"; // 屏幕居中
   newDiv.style.overflow = "auto";
@@ -914,8 +965,7 @@ function submit_div(goods_id, parentId) {
 
   Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
 
-  document.body.removeChild(docEle('speDiv'));
-  document.body.removeChild(docEle('mask'));
+  movietocart();
 
   var i = 0;
   var sel_obj = document.getElementsByTagName('select');

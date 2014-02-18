@@ -107,7 +107,7 @@ font-size:12px;
 }
 .search_box{
     position: absolute;
-    top:270px;
+    top:306px;
     right: 40px;
 }
 .search_box .bnt_number4{
@@ -400,6 +400,9 @@ height:40px; line-height:40px;
 .userContent{
 height:12px; width:12px;
 }
+.userContent a,.userContent a:hover{
+    color: #000
+}
 .searchbox{
 width:952px; height:145px;
 }
@@ -412,10 +415,10 @@ width:952px; height:145px;
     float: left;
 }
 .logo{
-width:300px; height:95px; line-height:95px; vertical-align:middle; text-align:center; overflow:hidden;
+width:300px; height:95px; line-height:125px; vertical-align:middle; text-align:center;
 }
  .logo img{
-    *margin-top: expression(( 95 - this.height ) / 2);
+    *margin-top: expression(( 125 - this.height ) / 2);
     text-align:center; 
     vertical-align:middle; 
     }
@@ -805,14 +808,21 @@ cursor:pointer;
 }   
 /*属性相关的商品*/
 .attribute{
-border-bottom:1px dashed #e8e8e8; width:165px;
-margin-bottom:6px;
+    margin-bottom:6px;
 }
   .attribute li{
-    padding-bottom:5px; margin-bottom:5px; width:165px; min-height:62px;
+        width: 284px;
+        height: 168px;
+        margin-bottom: 10px;
     }
     .attribute li img{
-    width:60px; height:60px; border:1px solid #ccc; margin-right:8px;
+        width: 284px;
+        height: 168px;
+        display: block;
+        margin-bottom: 10px;
+        background-color: #e3e3e3;
+        line-height: 168px;
+        text-align: center;
     }
 
     
@@ -1915,7 +1925,6 @@ _   position:relative; top:3px;
     right: 0px;
     border: 5px solid #5dc6d1;
     padding: 10px;
-    display: none;
 }
 .cart-list ul {
     overflow-y: auto;
@@ -1998,4 +2007,85 @@ _   position:relative; top:3px;
     color: #6a93cb;
     font-weight: bold;
     font-size: 14px;
+}
+a.backtop {
+    background: url(images/backtotop.png) no-repeat center center;
+    bottom: 20px;
+    cursor: pointer;
+    display: none;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    text-indent: -9999px;
+    width: 70px;
+    z-index: 100;
+}
+.user{
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px solid #919191;
+    width: 147px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+}
+#ECS_MEMBERZONE{
+    float: left;
+    margin: 0 8px;
+}
+.lock{
+    background:url(images/lock.png) 0px 0px no-repeat;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: 215px;
+    bottom: -152px;
+    display: inline-block;
+    z-index: 120;
+}
+.lock_active{
+    background:url(images/lock.png) -19px 0px no-repeat;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: 215px;
+    bottom: -152px;
+    display: inline-block;
+    z-index: 120;
+}
+#compareClose{
+    background:url(images/del_blue.png) left top no-repeat;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    top: 7px;
+    right: 10px;
+    position: absolute;
+}
+.adver{
+    width: 100%;
+    height: 73px;
+    margin: 14px 0px;
+}
+.rightad{
+    margin-left: 10px;
+}
+#cartListbox{
+    position: relative;
+}
+#carttotalbox{
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    z-index: 300;
+    font-weight: bold;
+    color: #39aec0;
+}
+#carttotalbox a,#carttotalbox a:link,#carttotalbox a:hover{
+    color: #39aec0;
+    text-decoration: none;
 }

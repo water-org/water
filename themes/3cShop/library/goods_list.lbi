@@ -69,7 +69,9 @@
      <div class="goodsbox">
            <div class="imgbox">
                 <a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
-                <div id="goods_actionobj_{$value}" onmouseover="movefun(this,0)" onmouseout="movefun(this,1)" class="goods_list_action_obj" style="left:0px;bottom:-141px;"></div>
+                <div id="goods_actionobj_{$value}" onmouseover="movefun(this,0)" onmouseout="movefun(this,1)" onclick="linkFun()" class="goods_list_action_obj" style="left:0px;bottom:-141px;">
+                  <span onclick="lockFun(this,event)" class="lock"></span>
+                </div>
                 <div  id="goods_action_{$value}" class="clearfix description_prebox">
                   <div  class="description_box">
                      <p class="baby_name">
@@ -82,9 +84,9 @@
                       <!--{foreach from=$goods.attr.water_params item=attr}-->
                       <p class="baby_ratings">
                           <span class="baby_rating_name">{$attr.name}</span>：
-                          <span class="mrs rate">
-                              <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"</span>
-                          </span>
+                            <span class="mrs rate">
+                                <span class="rate-inner" style="width:{$attr.activevalue}px;margin-right:{$attr.normalvalue}px"></span>
+                            </span>
                       </p>
                       <!--{/foreach}-->
                       <!--{/if}-->
@@ -125,7 +127,22 @@
            </div>
            <script type="text/javascript">
                 var mouseoverflag = 0,mouseoutflag=0;
+                function linkFun(){
+                  window.location.href="article_info.php?id=44";
+                }
+
+                function lockFun(__obj,e){
+                    __obj.className = __obj.className=="lock"?"lock_active":"lock";
+                    if (e && e.stopPropagation) {
+                      e.stopPropagation()  
+                    } else {
+                      window.event.cancelBubble=true 
+                    }
+                }
                 function movefun(__obj,__sn){
+                    if(__obj.firstChild.nextSibling.className == "lock_active"){
+                        return;
+                    }
                     var id = __obj.id.split("_")[2];
                     var act = "#goods_action_" + id;
                     var imgobj= document.getElementById("imgaction_" + id);

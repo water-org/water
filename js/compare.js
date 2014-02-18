@@ -51,13 +51,20 @@ Compare = {
 			var submitBtn = this.submitBtn = document.createElement("INPUT");
 			this.compareList = document.createElement("UL");
 			this.compareBox.id = "compareBox";
+
+			this.compareClose = document.createElement("span");
+			this.compareClose.id = "compareClose";
+			this.compareBox.appendChild(this.compareClose);
+
 			this.compareBox.style.display = "none";
 			this.compareBox.align = "center";
 			this.compareList.id = "compareList";
 			submitBtn.type = "button";
 			submitBtn.value = button_compare;
 			this.compareBox.appendChild(this.compareList);
+			var self = this;
 			//this.compareBox.appendChild(submitBtn);
+			
 			submitBtn.onclick = function() {
 				var cookieValue = document.getCookie("compareItems");
 				var obj = cookieValue.parseJSON();
@@ -126,6 +133,24 @@ Compare = {
 			//window.clearInterval(this.timer);
 			this.timer = 0;
 		}
+
+        this.compareClose.onclick = function(){
+            
+            var imgobj = self.compareList.getElementsByClassName('compare-delimg');
+            console.log(imgobj);
+            
+            function closeList(){
+                for (var i = 0; i < imgobj.length; i++) {
+                    if(imgobj[i].className == "compare-delimg"){
+                           imgobj[i].onclick();
+                    }
+                }
+                if(imgobj.length > 0){
+                    closeList();
+                }
+            }
+            closeList();
+        };
 	},
     fixed : function() {
         var offsetTop,
