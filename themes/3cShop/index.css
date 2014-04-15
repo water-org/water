@@ -2,10 +2,10 @@ body{
     font-size:12px;
     font-family:"微软雅黑",Arial,Verdana;
     line-height:150%;
+    background:url(images/bg01.gif) left top repeat;
     margin:0;
     padding:0;
     color:#424242;
-    position: relative;
     overflow: hidden;
 }
 h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,img,p{
@@ -14,6 +14,19 @@ h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,img,p{
     border:none;
     list-style-type:none;
 }
+
+.indexmain{
+    width:1342px;
+    height:620px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-683px;
+    margin-top:-322px;
+    border:12px solid #33cadc;
+    overflow:hidden;
+}
+                    
 img{
     padding: 0;
     margin: 0;
@@ -21,12 +34,11 @@ img{
 }
 .bgimg{
     width: 100%;
-    height: 100%;
     overflow: hidden;
+    height:100%;
 }
 .bgimg img{
     width: 100%;
-    height: 100%;
 }
 .mask{
     width: 100%;
@@ -234,6 +246,7 @@ img{
 .waterlist{
     color: #0a6ad9;
     font-size: 14px;
+    min-height:68px;
 }
 .waterlist a{
     color: #0a6ad9;

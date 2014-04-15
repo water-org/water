@@ -469,9 +469,9 @@
 				</tr>
 				<!--{/if}-->
 				<tr>
-					<td align="right" bgcolor="#ffffff">{$lang.phone}：</td>
+                                    <td align="right" bgcolor="#ffffff">{$lang.backup_phone}：</td>
 					<td align="left" bgcolor="#ffffff"><input name="tel" type="text" class="InputBorder" value="{$order.tel|escape}" size="25" /></td>
-					<td align="right" bgcolor="#ffffff">{$lang.backup_phone}：</td>
+                                        <td align="right" bgcolor="#ffffff">{$lang.phone}：</td>
 					<td align="left" bgcolor="#ffffff"><input name="mobile" type="text"  class="InputBorder" value="{$order.mobile|escape}" size="25" /></td>
 				</tr>
 				<!-- {if $order.exist_real_goods} -->

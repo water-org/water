@@ -2,7 +2,7 @@
 <div class="knowledge block clearfix">
     <div class="knowtab clearfix">
         <div {if $cat_id eq 4}class="active"{/if} id="knowtab_0"><a href="article_cat.php?id=4">优水知识</a></div>
-        <div {if $cat_id eq 13}class="active"{/if} id="knowtab_1"><a href="article_cat.php?id=13">优水热点</a></div>
+        <div {if $cat_id eq 13}class="active"{/if} id="knowtab_1"><a href="article_cat.php?id=13">新鲜事</a></div>
     </div>
     <div class="knowlist clearfix">
     <!--{if $cat_id eq 4}-->

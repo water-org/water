@@ -16,6 +16,7 @@
 
 </head>
 <body>
+    <div class="indexmain">
     <div class="bgimg" >
         <img id="bgimg" src="images/indexbg.jpg">
     </div>
@@ -68,16 +69,15 @@
             <ul class="right_txt">
                 <li class="waterlist">
                     <span class="txt_blue">优水联盟：</span>
-                    <!--{foreach from=$all_brand key=info item=url}-->
-                    <!--{if $info < 9}-->
-                    <a href="goods.php?id={$url.goods_id}">{$url.brand_name}</a>
-                    <!--{/if}-->
+                    <!--{foreach from=$brand_list key=info item=url}-->
+                    <a href="category.php?id=3&brand={$info}">{$url}</a>
                     <!--{/foreach}-->
                 </li>
                 <li><a class="txt_blue" href="category.php?id=3">全部产品>></a></li>
             </ul>
         </div>
     </div>
+</div>
 </body>
 
 </html>
@@ -95,13 +95,12 @@
         }
 
 
-        bgimg.height($(window).height());
-
-        window.setTimeout (function(){
-          $(window).resize(function() {
-            location.assign(location);
-          });
-        },100);
+        //bgimg.height($(window).height());
+        //window.setTimeout (function(){
+         // $(window).resize(function() {
+           // location.assign(location);
+         // });
+        //},100);
     }
 
     function setbgfun(__obj,__pos,__dir){

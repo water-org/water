@@ -1,7 +1,6 @@
 <?php
 // database host
-//$db_host   = "172.22.186.50";
-$db_host   = "127.0.0.1";
+$db_host   = "localhost:3306";
 
 // database name
 $db_name   = "water";
@@ -10,12 +9,12 @@ $db_name   = "water";
 $db_user   = "root";
 
 // database password
-$db_pass   = "";
+$db_pass   = "youshuike";
 
 // table prefix
 $prefix    = "ecs_";
 
-$timezone    = "UTC";
+$timezone    = "PRC";
 
 $cookie_path    = "/";
 
@@ -31,6 +30,6 @@ define('AUTH_KEY', 'this is a key');
 
 define('OLD_AUTH_KEY', '');
 
-define('API_TIME', '2014-02-15 10:35:05');
+define('API_TIME', '2014-04-15 15:56:05');
 
 ?>

@@ -399,6 +399,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id) || 1)
         $page = $max_page;
     }
     $goodslist = category_get_goods($children, $brand, $price_min, $price_max, $ext, $size, $page, $sort, $order);
+    //print_r($goodslist);die;
     if($display == 'grid')
     {
         if(count($goodslist) % 2 != 0)
@@ -471,7 +472,8 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
             'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
             'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' .
                 "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' " .
-            "WHERE $where $ext ORDER BY $sort $order";
+            "WHERE $where $ext ORDER BY g.is_best DESC, g.is_hot DESC, g.sort_order ASC ";/*$sort $order*/
+    //echo $sql, "\n";
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 
     $arr = array();

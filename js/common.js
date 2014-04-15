@@ -59,7 +59,9 @@ function addToCartResponse(result) {
   if (result.error > 0) {
     // 如果需要缺货登记，跳转
     if (result.error == 2) {
+        if(docEle('speDiv'))
       document.body.removeChild(docEle('speDiv'));
+        if(docEle('mask') )
       document.body.removeChild(docEle('mask'));
       if (confirm(result.message)) {
         
@@ -79,7 +81,7 @@ function addToCartResponse(result) {
         cartBtn = document.getElementById('cartBtn'),
         carttotal = document.getElementById('carttotal'),
         cart_url = 'flow.php?step=cart';
-    cartBtn.setAttribute('update', 1);
+        cartBtn.setAttribute('update', 1);
 
     if (cartInfo) {
         cartInfo.innerHTML = result.content;
@@ -89,6 +91,7 @@ function addToCartResponse(result) {
     if (result.one_step_buy == '1') {
       location.href = cart_url;
     } else {
+
       switch (result.confirm_type) {
         case '1':
           if (confirm(result.message)) location.href = cart_url;
@@ -101,8 +104,8 @@ function addToCartResponse(result) {
             alert("添加购物车成功");
           }
           
-          return;
-          location.href = cart_url;
+          // return;
+          // location.href = cart_url;
           break;
         default:
           break;

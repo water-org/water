@@ -2,9 +2,9 @@
 <div class="clearfix">
   <div class="pageNav fl">
 	 <ul class="clearfix">
-		 <li {if $navigator_list.config.index eq 1 } class="curs"{/if}><a href="../index.php">{$lang.home}<br/>Home</a></li>
+		 <li {if $navigator_list.config.index eq 1 && $hook != 1} class="curs"{/if}><a href="../index.php">{$lang.home}<br/>Home</a></li>
 		 <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
-			<li {if $nav.active eq 1} class="curs"{/if}><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a></li>
+			<li {if $nav.active eq 1  || $nav.url eq "article_cat.php?id=4" && $hook eq 1} class="curs"{/if}><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a></li>
 		 <!-- {/foreach} -->
 		 </ul>
 	</div>

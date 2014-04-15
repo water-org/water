@@ -20,6 +20,37 @@ background: url(images/bj.jpg) left top repeat fixed;
     margin-bottom: 30px;
     position: relative;
 }
+#goodsleftallow{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:13px;
+    height:65px;
+    background:url(images/l1.gif) left top no-repeat;
+}
+#goodsleftallow:hover{
+    background:url(images/l2.gif) left top no-repeat;
+}
+#goodsrightallow{
+    position:absolute;
+    right:0px;
+    top:0px;
+    width:13px;
+    height:65px;
+    background:url(images/r1.gif) left top no-repeat;
+}
+#goodsrightallow:hover{
+    background:url(images/r2.gif) left top no-repeat;
+}
+.indexmain{
+    width:1366px;
+    height:663px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-683px;
+    margin-top:-330px;
+}
 .hide{
     display: none;
 }
@@ -62,6 +93,15 @@ font-size:12px;
     height: 20px;
     line-height: 20px;
     padding: 0px;
+}
+.zbhref{
+    position: absolute;
+    width: 146px;
+    height: 114px;
+    left: 25px;
+    top: 49px;
+    z-index:90;
+
 }
 .us_contentBox table{
     margin-bottom: 20px;
@@ -113,11 +153,11 @@ font-size:12px;
 .search_box .bnt_number4{
     width:30px; 
     height: 33px;
+    background:url(images/search_r.jpg) no-repeat left top;
     text-indent: -100px;
     outline: none;
     margin:0px;
     float: left;
-    background:url(images/search_r.jpg) no-repeat left top;
     border: none;
     border-radius:0px;
 }
@@ -165,44 +205,47 @@ overflow:hidden;
 }
  
 .bnt_number2,.bnt_number4,.bnt_number6,.bnt_number8,.bnt_number10{
-border:none;text-align:center;font-weight:100;color:#611829;height:22px; vertical-align:middle;cursor:pointer;
+border:none;text-align:center;font-weight:100;height:22px; vertical-align:middle;cursor:pointer;
 padding-top:4px\9;*padding-top:3px;
+background: #33cadc;
+border: 0px;
+color:#fff;
+border-radius: 3px;padding: 3px 15px;height: 33px;
 }
 .bnt_number2{
     height: 33px;
     padding: 3px 15px;
     outline: none;
     margin:0px;
-    border: 1px solid #ccc;
     border-radius: 3px;
-    color: #000;
 }
 .bnt_number4{
     height: 33px;
     padding: 3px 15px;
     outline: none;
     margin:0px;
-    border: 1px solid #ccc;
     border-radius: 3px;
-    color: #000;
 }
 .bnt_number6{
     height: 33px;
     padding: 3px 15px;
     outline: none;
     margin:0px;
-    border: 1px solid #ccc;
     border-radius: 3px;
-    color: #000;
 }
 .bnt_number8{
-width:118px; background:url(images/bg.gif) no-repeat -197px -92px;
-}
+width:118px; }
 .bnt_number10{
-width:145px; background:url(images/bg.gif) no-repeat -197px -118px;
+width:155px; background:33cadc;
+height: 33px;
+padding: 3px 15px;
+outline: none;
+margin: 0px;
+/* border: 1px solid #ccc; */
+border-radius: 3px;
 }
 .go{
-width:49px; height:21px; border:none; background:url(images/bg.gif) no-repeat -200px  -307px;cursor:pointer;
+width:49px; height:21px; border:none; cursor:pointer;
 }
 .bnt_join{
     cursor:pointer;
@@ -342,7 +385,7 @@ padding-left:12px;
         position: absolute;
          width: 465px;
          height: 180px;
-        z-index: 110;
+         z-index: 110;
     }
     .description_box p.baby_name a,
     .description_box p.baby_name a:link,
@@ -600,7 +643,11 @@ display: none;
      .cateContent dl dd p{
      float:left; width:82px; height:18px; margin-right:4px; overflow:hidden;
      }
+     .cateContent dt{
+         display:none;
+     }
      .cateContent dt.active {
+        display:block;
         background: #fdcf87;
         border: 1px solid #5c5d5f;
         border-bottom: 1px solid #fdcf87;
@@ -942,12 +989,12 @@ position:relative;
             float:left;
         }
         #focustab li img{ 
-            height:61px;
-            width:103px; 
+            height:59px;
+            width:90px; 
             display:block;
         }
         #focustab li a{
-            margin:0 5px 0 0px;
+            margin:0 3px 0 0px;
             display:block;
             padding: 3px;
             background-color: #cecece;
@@ -1093,6 +1140,7 @@ position:relative;
 
 }   
 .attribuet{
+    margin-top:20px;
     width:800px;
 }
 .hostrybox{
@@ -1244,6 +1292,7 @@ position:relative;
     width: 700px;
 }
 .sort{
+    display:none;
     font-size:12px;
     font-weight:100;
     line-height:28px;
@@ -1425,8 +1474,7 @@ _   position:relative; top:3px;
         color:#295ad0;
     }
 .step_login{
-    border:1px solid #ccc;
-    width:478px;
+    width:463px;
     height:300px;
     padding:5px;
     margin-bottom:8px;
@@ -1449,7 +1497,6 @@ _   position:relative; top:3px;
         border-bottom:1px solid #c4bcb8;
     }
     .step_login h4.h4bg{
-        background:#5c5c5c;
     }
 /* ====================用户中心==================== */  
 .userTit{
@@ -1514,7 +1561,7 @@ _   position:relative; top:3px;
     padding:2px 8px 10px 10px; 
     width:265px; 
     position:relative;
-    display:none;
+   visibility:hidden;
     line-height: 19px;
 }
 .close a{
@@ -1976,6 +2023,9 @@ _   position:relative; top:3px;
     width: 219px!important;
     height: 131px!important;
 }
+.bought img{
+    width:100%;
+}
 .bought_title{
     background-color: #53c5cf;
     height: 36px;
@@ -1997,16 +2047,16 @@ _   position:relative; top:3px;
     padding: 20px 0px;
 }
 .tagcontent div{
-    color: #6a93cb;
+/*    color: #6a93cb;
     border-bottom: 1px solid #6a93cb;
     padding: 10px 0px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 14px;*/
 }
 .tagcontent div *{
-    color: #6a93cb;
+/*    color: #6a93cb;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 14px;*/
 }
 a.backtop {
     background: url(images/backtotop.png) no-repeat center center;
@@ -2021,17 +2071,21 @@ a.backtop {
     z-index: 100;
 }
 .user{
-    background-color: #fff;
-    color: #000;
+    background: #fff url(images/icon01.png) no-repeat 8px center;
+    color: #21b1c2!important;
     display: inline-block;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border: 1px solid #919191;
     width: 147px;
+    text-indent:40px;
     height: 31px;
     line-height: 31px;
-    text-align: center;
+    text-align: left;
+}
+.user a{
+    color: #21b1c2!important;
 }
 #ECS_MEMBERZONE{
     float: left;
@@ -2046,6 +2100,7 @@ a.backtop {
     bottom: -152px;
     display: inline-block;
     z-index: 120;
+    cursor:pointer;
 }
 .lock_active{
     background:url(images/lock.png) -19px 0px no-repeat;
@@ -2056,6 +2111,7 @@ a.backtop {
     bottom: -152px;
     display: inline-block;
     z-index: 120;
+    cursor:pointer;
 }
 #compareClose{
     background:url(images/del_blue.png) left top no-repeat;

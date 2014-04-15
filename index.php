@@ -29,12 +29,12 @@ if(($ua == '' || preg_match($uachar, $ua))&& !strpos(strtolower($_SERVER['REQUES
 {
     $Loaction = 'mobile/';
 
-    if (!empty($Loaction))
-    {
-        ecs_header("Location: $Loaction\n");
+    //if (!empty($Loaction))
+    //{
+        //ecs_header("Location: $Loaction\n");
 
-        exit;
-    }
+        //exit;
+    //}
 
 }
 /*------------------------------------------------------ */
@@ -123,7 +123,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id) || 1)
     $smarty->assign('new_goods',       get_recommend_goods('new'));     // 最新商品
     $smarty->assign('hot_goods',       $hot_goods);     // 热点文章
     $smarty->assign('promotion_goods', get_promote_goods()); // 特价商品
-    $smarty->assign('brand_list',      get_brands());
+    //$smarty->assign('brand_list',      get_brands());
     $smarty->assign('promotion_info',  get_promotion_info()); // 增加一个动态显示所有促销信息的标签栏
 
     $smarty->assign('invoice_list',    index_get_invoice_query());  // 发货查询
@@ -131,7 +131,10 @@ if (!$smarty->is_cached('index.dwt', $cache_id) || 1)
     $smarty->assign('group_buy_goods', index_get_group_buy());      // 团购商品
     $smarty->assign('auction_list',    index_get_auction());        // 拍卖活动
     $smarty->assign('shop_notice',     $_CFG['shop_notice']);       // 商店公告
-    $smarty->assign('all_brand',       get_recommend_goods('all'));  // 所有品牌
+    $smarty->assign('brand_list',       get_brand_list('all'));  // 所有品牌
+
+
+    //print_r(get_brand_list('all'));
 
     /* 首页主广告设置 */
     $smarty->assign('index_ad',     $_CFG['index_ad']);

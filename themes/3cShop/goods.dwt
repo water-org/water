@@ -11,7 +11,7 @@
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
 {* 包含脚本文件 *}
-{insert_scripts files='common.js'}
+{insert_scripts files='common.js,move.js'}
 <script type="text/javascript" src="js/action.js"></script>
 </head>
 <body>
@@ -38,13 +38,48 @@
            <p><a href="gallery.php?id={$id}&amp;img={$picture.img_id}" target="_blank"><img src="{$picture.img_url}" /></a></p>
           </div>
          <!--{/foreach}--> 
-       </div>
-         <ul id="focustab" class="clearfix">
+     </div>
+     <div style="width:465px;height:65px;position:relative">
+         <div id="goodsleftallow" onclick="moveposter('left')"></div>
+         <div id="goodsrightallow" onclick="moveposter('right')"></div>
+         <div style="width:435px;height:65px;overflow:hidden;position:absolute;left:15px;top:0px;">
+         <ul id="focustab" class="clearfix" style="position:absolute;left:0px;top:0px;width:3000px;">
          <!-- {foreach name=pic from=$pictures item=picture}-->
             <li><a href="#go" target="_blank" name="{$smarty.foreach.pic.iteration}"><img src="{$picture.img_url}" /></a></li>
          <!--{/foreach}-->
-         </ul>
-       <script>initAutoFocus();</script>
+     </ul>
+ </div>
+ </div>
+ <script>initAutoFocus();</script>
+ <script type="text/javascript">
+     var total = ;
+     var obj = document.getElementById("focustab");
+     var len = obj.document.getElementsBytagName("li");
+
+     var p = len - 4,
+     count = 0,
+     width = -99;
+
+function moveposter(__pos){
+    if(__pos == "left" && count > 0){
+        count --;
+        var left = count*width + "px"; 
+            move("#focustab")
+            .set('left', left)
+            .duration('0.5s')
+            .end();
+
+    }else if(pos == "right" && p > 0 && count < p){
+        count ++;
+        var right = count*width + "px";
+        move("#focustab")
+            .set('left',right)
+            .duration('0.5s')
+            .end();
+
+    }
+}
+</script>
 
  </div>
  <div class="goodInfoTxt fr">
@@ -232,7 +267,7 @@
             </div>
             <div class="goods_button">
                 <a href="javascript:addToCart({$goods.goods_id})"><img src="images/bnt_buy.gif" /></a> 
-                <a href="javascript:collect({$goods.goods_id})"><img src="images/bnt_colle.gif" /></a>
+               <a href="flow.php"><img src="images/bnt_colle.gif" /></a>
             </div>
         </form>
  </div>
@@ -242,8 +277,8 @@
  <div id="attribuet" class="attribuet fl">
    <div class="tagTit" id="com_b">
       <h2><span class="L"></span><span class="R"></span>{$lang.feed_goods_desc}</h2>
-        <h2 class="h2bg"><span class="L"></span><span class="R"></span>{$lang.goods_attr}</h2>
-        <h2 class="h2bg"><span class="L"></span><span class="R"></span>{$lang.goods_tag}</h2>
+        <h2 class="h2bg"><span class="L"></span><span class="R"></span>{$lang.latest_comment}</h2>
+        <h2 class="h2bg"><span class="L"></span><span class="R"></span>{$lang.common_question}</h2>
         <!-- {if $package_goods_list} -->
         <h2 class="h2bg"><span class="L"></span><span class="R"></span><font id="package">{$lang.remark_package}</font></h2>
         <script>setInterval("colorStyle('package','a','b')",300);</script>
@@ -256,22 +291,24 @@
         {$goods.goods_desc}
        </blockquote>
                 <blockquote>
-        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-        <!-- {foreach from=$properties item=property_group key=key} -->
-        <tr>
-          <th colspan="2" bgcolor="#FFFFFF">{$key|escape}</th>
-        </tr>
-        <!-- {foreach from=$property_group item=property} -->
-        <tr>
-          <td bgcolor="#FFFFFF" align="left" width="30%" class="f1">[{$property.name|escape:html}]</td>
-          <td bgcolor="#FFFFFF" align="left" width="70%">{$property.value}</td>
-        </tr>
-        <!-- {/foreach}-->
-        <!-- {/foreach}-->
-       </table>
+<!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+        <!--<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">-->
+        <!--[> {foreach from=$properties item=property_group key=key} <]-->
+        <!--<tr>-->
+          <!--<th colspan="2" bgcolor="#FFFFFF">{$key|escape}</th>-->
+        <!--</tr>-->
+        <!--[> {foreach from=$property_group item=property} <]-->
+        <!--<tr>-->
+          <!--<td bgcolor="#FFFFFF" align="left" width="30%" class="f1">[{$property.name|escape:html}]</td>-->
+          <!--<td bgcolor="#FFFFFF" align="left" width="70%">{$property.value}</td>-->
+        <!--</tr>-->
+        <!--[> {/foreach}<]-->
+        <!--[> {/foreach}<]-->
+       <!--</table>-->
        </blockquote>
                 <blockquote>
-        <!-- #BeginLibraryItem "/library/goods_tags.lbi" --><!-- #EndLibraryItem -->
+        <!--[> #BeginLibraryItem "/library/goods_tags.lbi" --><!-- #EndLibraryItem <]-->
+        <!-- #BeginLibraryItem "/library/questions.lbi" --><!-- #EndLibraryItem -->
        </blockquote>
              <!-- {if $package_goods_list} -->
         <blockquote>
@@ -349,11 +386,10 @@ openLine.onmouseout = function(){
 <!-- TemplateBeginEditable name="可编辑区" -->
 <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/bought_goods.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/bought_note_guide.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
-<!-- TemplateEndEditable -->	
+<!--{* #BeginLibraryItem "/library/bought_note_guide.lbi" --><!-- #EndLibraryItem *}-->
+<!-- {*#BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem *}-->
+<!-- TemplateEndEditable -->    
 </div>
 <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

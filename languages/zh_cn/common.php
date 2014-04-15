@@ -59,7 +59,7 @@ $_LANG['turnover'] = '成交';
 $_LANG['no_notes'] = '还没有人购买过此商品';
 $_LANG['shop_price'] = '本店售价：';
 $_LANG['market_price'] = '市场价格：';
-$_LANG['goods_brief'] = '商品描述：';
+$_LANG['goods_brief'] = '商品详情：';
 $_LANG['goods_album'] = '商品相册';
 $_LANG['promote_price'] = "促销价：";
 $_LANG['fittings_price'] = '配件价格：';
@@ -726,4 +726,9 @@ $_LANG['label_collection'] = '我的收藏';
 $_LANG['article_list'] = '文章列表';
 $_LANG['preferences_price'] = '优惠价格';
 $_LANG['divided_into'] = '分成规则';
+
+/* 新增部分 */
+$_LANG['latest_comment'] = '近期评论';
+$_LANG['common_question'] = '常见问题';
+
 ?>

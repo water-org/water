@@ -2780,14 +2780,17 @@ if (!function_exists('array_combine')) {
 }
 
 function my_get_goods_list($goodslist) {
+    //print_r($goodslist);die;
 	foreach ($goodslist as &$goods) {
 		$specification = get_goods_properties($goods['goods_id']);
-		foreach ($specification['pro']['商品属性'] as $a) {
-			if($a['name'] == '水源产地') {
+                //print_r($specification);die;
+		foreach ($specification['pro']['商品属性'] as $k => $a) {
+			if($a['name'] == '水源产地' || $k == 215) {
 				$goods['attr']['region'] = $a;
-			} else if ($a['name'] == '适用范围') {
+			} else if ($a['name'] == '适用范围' || $k == 211) {
 				$goods['attr']['fit_range'] = $a;
-			} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化性') {
+			//} else if ($a['name'] == '洁净度' || $a['name'] == '硬度' || $a['name'] == '活性' || $a['name'] == '抗氧化性') {
+                        } else {
                 $a['activevalue'] = $a['value']/5*80;
                 $a['normalvalue'] = 80-($a['value']/5*80);
 				$goods['attr']['water_params'][] = $a;

@@ -53,10 +53,10 @@
   </tr>
   <!-- {/if} -->
   <tr>
-    <td bgcolor="#ffffff">{$lang.phone}:</td>
-    <td bgcolor="#ffffff"><input name="tel" type="text" class="InputBorder"  id="tel_{$sn}" value="{$consignee.tel|escape}" />
-    {$lang.require_field}</td>
     <td bgcolor="#ffffff">{$lang.backup_phone}:</td>
+    <td bgcolor="#ffffff"><input name="tel" type="text" class="InputBorder"  id="tel_{$sn}" />
+    {$lang.require_field}</td>
+    <td bgcolor="#ffffff">{$lang.phone}:</td>
     <td bgcolor="#ffffff"><input name="mobile" type="text" class="InputBorder"  id="mobile_{$sn}" value="{$consignee.mobile|escape}" /></td>
   </tr>
   <!-- {if $real_goods_count gt 0} -->

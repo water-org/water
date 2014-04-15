@@ -70,6 +70,7 @@
      */
     window.delCartGoodsById = function(id) {
         Ajax.call('flow.php?step=ajaxdrop_goods', 'id=' + id, delCartGoods, 'GET', 'JSON');
+        window.location.href=window.location.href;
     }
     function delCartGoods(result) {
         if (result.drop_count === '1') {

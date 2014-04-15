@@ -119,7 +119,6 @@
 				<td class="flow_del" align="right" bgcolor="#ffffff">
 					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; " >{$lang.drop}</a>&nbsp;&nbsp;
 					<!-- {if $smarty.session.user_id gt 0} 如果登录了，可以加入收藏 -->
-					<a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_to_collect&amp;id={$goods.rec_id}'; " >{$lang.drop_to_collect}</a>
 					<!-- {/if} -->
 					</td>
 			</tr>
@@ -140,7 +139,7 @@
 		</table>
 		<input type="hidden" name="step" value="update_cart" />
 	</form>
-	<table style="margin-bottom:60px;" width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="floatTable">
+	<table style="margin-bottom:60px;width:100%" width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="floatTable">
 		<tr>
 			<td><a href="./"><img src="images/continue.gif" /></a></td>
 			<td align="right"><a href="flow.php?step=checkout"><img src="images/checkout.gif" /></a></td>
@@ -476,7 +475,7 @@ var flow_no_shipping = "{$lang.flow_no_shipping}";
  <input name = "payment" type="radio" value = "-1" checked="checked"  style="display:none"/>
 <!--{/if}-->
 
-<!-- {if $pack_list} 是否有包装 -->
+<!-- {if $pack_list_move} 是否有包装 -->
 <div class="mod2Tit">{$lang.goods_package}</div>
 	<table width="100%" align="center" border="0" cellpadding="5" class="floatTable" id="packTable">
 		<tr>
@@ -512,7 +511,7 @@ var flow_no_shipping = "{$lang.flow_no_shipping}";
 	</table>
 <!-- {/if} 是否使用包装 -->
 
-<!-- {if $card_list} 是否有贺卡 -->
+<!-- {if $card_list_move} 是否有贺卡 -->
 <div class="mod2Tit">{$lang.goods_card}</div>
 	<table width="100%" align="center" border="0" cellpadding="5"  class="floatTable" id="cardTable">
 		<tr>
@@ -738,9 +737,9 @@ function checkSignupForm(frm) {
 <!-- 开始用户登录注册界面 -->
 <div class="clearfix">
  <div class="step_login fl">
-  <h4>用户登录</h4>
+  <h4 style="margin-right:14px">已注册用户请从这里登录</h4>
 	<form action="flow.php?step=login" method="post" name="loginForm" id="loginForm" onsubmit="return checkLoginForm(this)">
-		<table width="100%" border="0" cellpadding="5" cellspacing="0">
+		<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-right: 1px dashed #ccc;">
 					<tr>
 						<td width="30%" align="right" bgcolor="#ffffff">{$lang.username}</td>
 						<td width="70%" bgcolor="#ffffff"><input name="username" type="text" class="InputBorder" id="username" /></td>
@@ -749,7 +748,7 @@ function checkSignupForm(frm) {
 						<td align="right" bgcolor="#ffffff" valign="top">{$lang.password}</td>
 						<td bgcolor="#ffffff">
 						<input name="password" class="InputBorder" type="password" />
-						<a href="#blank" onclick="pwTips()">{$lang.get_password}？</a><br />
+						
 						<div class="close" id="tips">
 						<span title="关闭" id="tipsClose" onclick=" pwTipsClose()"></span>
 						如果您忘记了密码，可以通过下面两种方式找回：<br />
@@ -775,7 +774,11 @@ function checkSignupForm(frm) {
 					<!--{/if}-->
 					<tr>
 					  <td>&nbsp;</td>
-            <td align="left"><input type="checkbox" value="1" name="remember" id="remember" /><label for="remember">{$lang.remember}</label></td>
+            			<td align="left"><input type="checkbox" value="1" name="remember" id="remember" /><label for="remember">记住登录状态</label>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="user.php?act=get_password">{$lang.get_password}？</a>
+							
+            			</td>
           </tr>
 					<tr>
 						<td colspan="2" align="center" bgcolor="#ffffff">
@@ -790,7 +793,7 @@ function checkSignupForm(frm) {
 	</form>
  </div>
  <div class="step_login fr">
- <h4 class="h4bg">用户注册</h4>
+ <h4 class="h4bg">新用户注册</h4>
 <form action="flow.php?step=login" method="post" name="formUser" id="registerForm" onsubmit="return checkSignupForm(this)">
 	 <table width="100%" border="0" cellpadding="5" cellspacing="0" >
 			<tr>

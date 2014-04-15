@@ -69,8 +69,9 @@
      <div class="goodsbox">
            <div class="imgbox">
                 <a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
-                <div id="goods_actionobj_{$value}" onmouseover="movefun(this,0)" onmouseout="movefun(this,1)" onclick="linkFun()" class="goods_list_action_obj" style="left:0px;bottom:-141px;">
-                  <span onclick="lockFun(this,event)" class="lock"></span>
+                <div id="goods_actionobj_{$value}" onmouseover="movefun(this,0)" onmouseout="movefun(this,1)"  class="goods_list_action_obj" style="left:0px;bottom:-141px;">
+                <span onclick="lockFun(this,event)" class="lock"></span>
+              <a href="article_info.php?id=44" class="zbhref"></a>
                 </div>
                 <div  id="goods_action_{$value}" class="clearfix description_prebox">
                   <div  class="description_box">

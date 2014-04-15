@@ -75,6 +75,9 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
     $smarty->assign('hot_goods',            get_recommend_goods('hot'));
     $smarty->assign('promotion_goods',      get_promote_goods());
     $smarty->assign('promotion_info', get_promotion_info());
+    if ($cat_id == 13) {
+        $smarty->assign('hook', 1);
+    }
 
     /* Meta */
     $meta = $db->getRow("SELECT keywords, cat_desc FROM " . $ecs->table('article_cat') . " WHERE cat_id = '$cat_id'");

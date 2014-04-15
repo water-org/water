@@ -40,23 +40,21 @@
   <div class="us_contentBox default clearfix">
 	<font class="price">{$info.username}</font> {$lang.welcome_to} {$info.shop_name}！<br /><br />
 	{$lang.last_time}: {$info.last_time}<br />
-	<font class="f1">{$rank_name} {$next_rank_name}</font><br />
 	 <!--{if $info.is_validate eq 0} -->
 	{$lang.not_validated} <a href="javascript:sendHashMail()" style="color:#006bd0;">{$lang.resend_hash_mail}</a><br />
 	 <!--{/if} -->
 	 <div class="us_notice">
 	 &nbsp;&nbsp;{$user_notice}
 	 </div>
-	<div class="fl" style="width:350px;">
+	<div class="fl" style="width:320px;">
 	<h5>{$lang.your_account}</h5>
 	{$lang.your_surplus}:<a href="user.php?act=account_log" style="color:#006bd0;">{$info.surplus}</a><br />
 	<!-- {if $info.credit_line gt 0} 如果有信用额度 -->
 	{$lang.credit_line}:{$info.formated_credit_line}<br />
 	<!-- {/if} -->
 	{$lang.your_bonus}:<a href="user.php?act=bonus" style="color:#006bd0;">{$info.bonus}</a><br />
-	{$lang.your_integral}:<font class="price">{$info.integral}</font><br />
 	</div>
-	<div class="fr" style="width:350px;">
+	<div class="fr" style="width:320px;">
 	<h5>{$lang.your_notice}</h5>
 	 <!--{foreach from=$prompt item=item}-->
 	{$item.text}<br />
